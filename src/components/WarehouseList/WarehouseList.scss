@@ -1,0 +1,23 @@
+.list-header {
+    &--container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid grey;
+        padding: 2rem 1.5rem;
+    }
+    &--back {
+        width: 1rem;
+    }
+    &--location {
+        font-size: 1.75rem;
+        &-container {
+            gap: .75rem;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &--edit {
+        width: 2rem;
+    }
+}
