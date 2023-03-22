@@ -8,14 +8,14 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/warehouses" element={<Warehouses />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
+        {/* <Route path="/warehouses" element={<Warehouses />} />
         <Route path="/warehouses/add" element={<Warehouse />} />
         <Route path="/warehouses/edit/:warehouseId" element={<Warehouse />} />
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/inventory/:itemId" element={<Inventory />} />
         <Route path="/inventory/add" element={<Inventory />} />
-        <Route path="/inventory/edit/:itemId" element={<Inventory />} />
+        <Route path="/inventory/edit/:itemId" element={<Inventory />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>
