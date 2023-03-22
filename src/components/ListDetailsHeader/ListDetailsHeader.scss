@@ -1,0 +1,44 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+    &--container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid $secondary-second;
+        padding: 2rem 1.5rem;
+    }
+    &--back {
+        align-self: center;
+        min-width: 1.75rem;
+        max-height: 1.75rem;
+    }
+    &--location {
+        font-size: 1.75rem;
+        color: #13183C;
+        &-container {
+            gap: .75rem;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &--edit {
+        width: 2rem;
+    }
+}
+
+.contact{
+    &--container{
+        
+    }
+    &--label{
+        color: #5C667E;
+        font-size: .8125rem;
+        
+    }
+    &--details{
+        color: #13183C;
+        font-size: .8125rem;
+    }
+}
