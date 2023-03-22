@@ -1,0 +1,21 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.wrapper{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-second;
+    height: 7rem;
+}
+.copyright{
+    font-size: 0.688rem;
+    line-height: 1rem;
+    color: $secondary-first;
+    font-weight: 400;
+}
