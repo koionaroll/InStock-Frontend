@@ -1,0 +1,65 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/fonts' as *;
+
+.header {
+    padding:24px 16px 16px;
+    color: $primary-third;
+    background-color: $background-first;
+    text-align: center;
+    @include tablet {
+        padding: 24px 32px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    @include desktop {
+        padding: 24px 63px 16px;
+    }
+    &__logo {
+        width: 125px;
+    }
+}
+
+.nav {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    @include tablet {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    &__links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    
+    }
+
+    &__link {
+        width: 50%;
+        margin-top: 8px;
+        padding: 8px 0px;
+        &:hover {
+            background-color: $primary-first;
+            border-radius: 50px;
+            text-decoration: underline;
+            cursor: pointer;
+            }
+        }
+
+    &__link--active {
+        font-weight: 600;
+        background-color: $primary-first;
+        border-radius: 50px;
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            padding-left: 36px;
+            padding-right: 36px;
+        }
+    }
+}
