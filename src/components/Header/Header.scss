@@ -4,7 +4,6 @@
 
 .header {
     padding:24px 16px 16px;
-    color: $primary-third;
     background-color: $background-first;
     text-align: center;
     @include tablet {
@@ -36,7 +35,6 @@
         justify-content: center;
         align-items: center;
         gap: 8px;
-    
     }
 
     &__link {
