@@ -3,23 +3,21 @@
 
 .header {
     &--container {
-        max-width: 21.4375rem;
+        width: 100%;
         background-color: $primary-third;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid $secondary-second;
         padding: 2rem 1.5rem;
-        
+        border-top-right-radius: 0.25rem;
+        border-top-left-radius: 0.25rem;
+
         @include tablet {
-            min-width: 44rem;
-        }
-        
-        @include desktop {
-            min-width: 63.75rem;
+            padding: 1.5rem;
         }
     }
-    
+
     &--back {
         align-self: center;
         min-width: 1.75rem;
@@ -44,7 +42,7 @@
 
 .contact {
     &--container {
-        max-width: 21.4375rem;
+        width: 100%;
         background-color: $primary-third;
         display: flex;
         flex-wrap: wrap;
@@ -53,14 +51,9 @@
         border-bottom: 1px solid $secondary-second;
 
         @include tablet {
-            min-width: 44rem;
             gap: unset;
             justify-content: space-between;
             border-bottom: none;
-        }
-
-        @include desktop {
-            min-width: 63.75rem;
         }
 
         &--tablet {
@@ -69,9 +62,9 @@
             gap: 1.5rem;
 
             @include tablet {
-               border-left: 1px solid $secondary-second;
+                border-left: 1px solid $secondary-second;
                 padding-left: 4rem;
-                gap:5rem
+                gap: 5rem
             }
 
             @include desktop {
@@ -83,10 +76,63 @@
     &--label {
         color: #5C667E;
         font-size: .8125rem;
+        font-weight: 600;
     }
 
     &--details {
         color: #13183C;
+        font-weight: 600;
         font-size: .8125rem;
+    }
+
+
+}
+
+.details--label{
+    color: $secondary-first;
+    font-size: .8125rem;
+    font-weight: 600;
+
+
+    @include tablet {
+        display: none;
+    }
+
+    &--container {
+        width: 100%;
+        display: none;
+        font-size: 0.8125rem;
+        background-color: $background-second;
+
+        @include tablet {
+            gap: 1rem;
+            padding: 0.5rem 2rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &--tablet {
+        font-weight: 600;
+        color: $secondary-first;
+        display: unset;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet{
+            flex-direction: row;
+            align-items: center;
+            width: 30%;
+        }
+
+        &--action {
+            color: $secondary-first;
+            font-weight: 600;
+            width: 20%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
     }
 }

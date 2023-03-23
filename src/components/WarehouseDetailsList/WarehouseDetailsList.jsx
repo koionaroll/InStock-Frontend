@@ -5,8 +5,10 @@ import ListDetailsHeader from "../ListDetailsHeader/ListDetailsHeader";
 function WarehouseDetailsList() {
   return (
     <>
-      <div className="border-radius">
+      <div className="list">
         <ListDetailsHeader />
+        <ListItem />
+        <ListItem />
         <ListItem />
       </div>
     </>

@@ -4,7 +4,7 @@
 
 .details {
     &--container {
-        max-width: 21.4375rem;
+        width: 100%;
         background-color: $primary-third;
         display: grid;
         height: 11rem;
@@ -18,66 +18,33 @@
             gap: 1rem;
             display: flex;
             height: unset;
-            min-width: 44rem;
             justify-content: space-between;
-        }
-
-        @include desktop {
-            min-width: 63.75rem;
-
         }
     }
 
     &--container:last-child {
         border-bottom: none;
-    }
-
-    &--label {
-        color: $secondary-first;
-        font-size: .8125rem;
-
-        @include tablet {
-            display: none;
-        }
-
-        &--container {
-            display: none;
-            font-size: 0.8125rem;
-            background-color: $background-second;
-
-            @include tablet {
-                gap: 1rem;
-                padding: 0.5rem 2rem;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
-
-        &--tablet {
-            display: unset;
-            width: 30%;
-            display: flex;
-            align-items: center;
-
-            &--action {
-                width: 20%;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-            }
-
-        }
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
     }
 
     &--info {
-        color: #13183C;
         font-size: .8125rem;
+        font-weight: 600;
+        color: $primary-first;
 
         @include tablet {
             width: 30%
         }
+        &-item{
+            @extend .details--info;
+            display: flex;
+            align-items: center;
+            color: $primary-second;
+        }
     }
+
+    
 }
 
 .button {
