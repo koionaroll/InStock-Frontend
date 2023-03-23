@@ -2,8 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.details{
-    &--container{
+.details {
+    &--container {
         max-width: 21.4375rem;
         background-color: $primary-third;
         display: grid;
@@ -13,30 +13,112 @@
         grid-template-rows: 2;
         padding: 1rem 2rem;
         border-bottom: 1px solid $secondary-second;
-        @include tablet{
+
+        @include tablet {
+            gap: 1rem;
+            display: flex;
+            height: unset;
             min-width: 44rem;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            min-width: 63.75rem;
+
         }
     }
-    &--label{
-        color: #5C667E;
-        font-size: .8125rem;    
+
+    &--container:last-child {
+        border-bottom: none;
     }
-    &--info{
+
+    &--label {
+        color: $secondary-first;
+        font-size: .8125rem;
+
+        @include tablet {
+            display: none;
+        }
+
+        &--container {
+            display: none;
+            font-size: 0.8125rem;
+            background-color: $background-second;
+
+            @include tablet {
+                gap: 1rem;
+                padding: 0.5rem 2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &--tablet {
+            display: unset;
+            width: 30%;
+            display: flex;
+            align-items: center;
+
+            &--action {
+                width: 20%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+        }
+    }
+
+    &--info {
         color: #13183C;
         font-size: .8125rem;
+
+        @include tablet {
+            width: 30%
+        }
     }
 }
 
-.delete{
-    border: none;
-    background-color: $primary-third;
-    display: flex;
-    justify-content: center;
-    width: 2rem;
-}
+.button {
+    &--container {
+        display: flex;
+        gap: 1rem;
 
-.edit{
-@extend .delete;
-    margin-left: auto;
+        @include tablet {
+            width: 20%;
+            display: flex;
+            justify-content: flex-end;
 
+        }
+    }
+
+    &--delete {
+        border: none;
+        background-color: $primary-third;
+        display: flex;
+        justify-content: center;
+        width: 1.5rem;
+    }
+
+    &--edit-1 {
+        @extend .button--delete;
+        margin-left: auto;
+        display: none;
+
+        @include tablet {
+            display: unset;
+            margin-left: 0;
+        }
+    }
+
+    &--edit-2 {
+        @extend .button--delete;
+        margin-left: auto;
+
+        @include tablet {
+            display: none;
+            margin-left: 0;
+        }
+    }
 }

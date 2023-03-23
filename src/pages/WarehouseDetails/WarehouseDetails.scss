@@ -4,14 +4,14 @@
 .WarehouseDetails--layout{
     display: flex;
     justify-content: center;
-    position: absolute;
-    top: 8.5rem;
-    left:0;
-    right:0;
-    z-index: 0;
-    // background-color: $background-second;
-    @include tablet{
-        top: 5.75rem;   
-    }
+    // position: absolute;
+    // top: 8.5rem;
+    // left:0;
+    // right:0;
+    // z-index: 0;
+    // // background-color: $background-second;
+    // @include tablet{
+    //     top: 5.75rem;   
+    // }
 }
 

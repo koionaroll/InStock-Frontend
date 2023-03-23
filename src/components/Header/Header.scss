@@ -3,18 +3,18 @@
 @use '../../styles/partials/fonts' as *;
 
 .header {
-    padding:24px 16px 88px;
+    padding:24px 16px 32px;
     color: $primary-third;
     background-color: $background-first;
     text-align: center;
     @include tablet {
-        padding: 24px 32px 88px;
+        padding: 24px 32px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     @include desktop {
-        padding: 24px 63px 88px;
+        padding: 24px 63px;
     }
     &__logo {
         width: 125px;
