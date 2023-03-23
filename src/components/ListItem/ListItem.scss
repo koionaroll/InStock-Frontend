@@ -1,3 +1,42 @@
-.test{
-    color: red;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.details{
+    &--container{
+        max-width: 21.4375rem;
+        background-color: $primary-third;
+        display: grid;
+        height: 11rem;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        grid-template-columns: 2;
+        grid-template-rows: 2;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid $secondary-second;
+        @include tablet{
+            min-width: 44rem;
+        }
+    }
+    &--label{
+        color: #5C667E;
+        font-size: .8125rem;    
+    }
+    &--info{
+        color: #13183C;
+        font-size: .8125rem;
+    }
+}
+
+.delete{
+    border: none;
+    background-color: $primary-third;
+    display: flex;
+    justify-content: center;
+    width: 2rem;
+}
+
+.edit{
+@extend .delete;
+    margin-left: auto;
+
 }

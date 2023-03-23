@@ -3,11 +3,16 @@
 
 .header {
     &--container {
+        max-width: 21.4375rem;
+        background-color: $primary-third;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid $secondary-second;
         padding: 2rem 1.5rem;
+        @include tablet{
+            min-width: 44rem;
+        }
     }
     &--back {
         align-self: center;
@@ -30,12 +35,20 @@
 
 .contact{
     &--container{
-        
+        max-width: 21.4375rem;
+        background-color: $primary-third;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem 2rem;
+        gap: 1.5rem; 
+         border-bottom: 1px solid $secondary-second;
+         @include tablet{
+            min-width: 44rem;
+        }
     }
     &--label{
         color: #5C667E;
-        font-size: .8125rem;
-        
+        font-size: .8125rem;    
     }
     &--details{
         color: #13183C;

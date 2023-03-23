@@ -10,6 +10,7 @@ function ListDetailsHeader({ prop }) {
         <div className="header--location-container">
           <img className="header--back" src={backArrow} alt="" />
           <h1 className="header--location">
+            Washington
             {
               // prop.title
             }
@@ -18,17 +19,44 @@ function ListDetailsHeader({ prop }) {
         <img className="header--edit" src={edit} alt="" />
       </div>
       <div className="contact--container">
-        <p className="contact--label">WAREHOUSE ADDRESS:</p>
-        <p className="contact--details">33 Pearl Street SW, Washington, USA</p>
-        <p className="contact--label">CONTACT NAME:</p>
         <div>
-          <p className="contact--details">Graeme Lyon </p>
-          <p className="contact--details">Warehouse Manager</p>
+          <p className="contact--label">WAREHOUSE ADDRESS:</p>
+          <p className="contact--details">
+            33 Pearl Street SW, Washington, USA
+            {
+              //prop.address
+            }
+          </p>
         </div>
-        <p className="contact--label">CONTACT INFORMATION:</p>
         <div>
-          <p className="contact--details">+1 (647) 504-0911</p>
-          <p className="contact--details">glyon@instock.com</p>
+          <p className="contact--label">CONTACT NAME:</p>
+          <p className="contact--details">
+            Graeme Lyon{" "}
+            {
+              //prop.name
+            }
+          </p>
+          <p className="contact--details">
+            Warehouse Manager{" "}
+            {
+              //prop.role
+            }
+          </p>
+        </div>
+        <div>
+          <p className="contact--label">CONTACT INFORMATION:</p>
+          <p className="contact--details">
+            +1 (647) 504-0911{" "}
+            {
+              //prop.phone
+            }
+          </p>
+          <p className="contact--details">
+            glyon@instock.com{" "}
+            {
+              //prop.email
+            }
+          </p>
         </div>
       </div>
     </>
