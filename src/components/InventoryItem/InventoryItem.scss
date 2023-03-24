@@ -134,6 +134,10 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    &:active,
+    &:visited {
+      color: $primary-second;
+    }
   }
   &__link--modifier {
     position: absolute;
@@ -144,5 +148,6 @@
   }
   &__edit-button {
     margin: 0 auto;
+    fill: $primary-second;
   }
 }

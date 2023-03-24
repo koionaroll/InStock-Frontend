@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 
 import deleteButton from "../../assets/Icons/delete_outline-24px.svg";
-import editButton from "../../assets/Icons/edit-24px.svg";
+import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import arrowBack from "../../assets/Icons/chevron_right-24px.svg";
 import "./WarehouseInfo.scss";
 
@@ -63,11 +63,7 @@ const WarehouseInfo = ({
                 className="warehouse__link--modifier"
                 to={`warehouses/edit/${id}`}
               >
-                <img
-                  className="warehouse__edit-button"
-                  src={editButton}
-                  alt="warehouse-edit-button"
-                />
+                <Edit className="warehouse__edit-button" />
               </Link>
             </li>
           </ul>

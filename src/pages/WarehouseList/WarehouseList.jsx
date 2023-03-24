@@ -29,43 +29,45 @@ const WarehouseList = () => {
     document.title = "Warehouses Page";
   }, []);
   return data ? (
-    <div className="warehouse-list">
-      <div className="warehouse__info--big-screens">
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">warehouse</p>
-          <img className="warehouse__image" src={sort} alt="" />
+    <div className="warehouse-list--layout">
+      <div className="warehouse-list">
+        <div className="warehouse__info--big-screens">
+          <div className="warehouse__wrapper">
+            <p className="warehouse__title--big-screens">warehouse</p>
+            <img className="warehouse__image" src={sort} alt="" />
+          </div>
+          <div className="warehouse__wrapper">
+            <p className="warehouse__title--big-screens">address</p>
+            <img className="warehouse__image" src={sort} />
+          </div>
+          <div className="warehouse__wrapper">
+            <p className="warehouse__title--big-screens">contact name</p>
+            <img className="warehouse__image" src={sort} alt="" />
+          </div>
+          <div className="warehouse__wrapper">
+            <p className="warehouse__title--big-screens">contact information</p>
+            <img className="warehouse__image" src={sort} />
+          </div>
+          <div className="warehouse__wrapper">
+            <p className="warehouse__title--big-screens warehouse__title--big-screens--modifier">
+              actions
+            </p>
+          </div>
         </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">address</p>
-          <img className="warehouse__image" src={sort} />
-        </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">contact name</p>
-          <img className="warehouse__image" src={sort} alt="" />
-        </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">contact information</p>
-          <img className="warehouse__image" src={sort} />
-        </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens warehouse__title--big-screens--modifier">
-            actions
-          </p>
-        </div>
+        {data.map((warehouse) => {
+          return (
+            <WarehouseInfo
+              key={warehouse.id}
+              id={warehouse.id}
+              warehouseName={warehouse.warehouse_name}
+              address={warehouse.address}
+              contactName={warehouse.contact_name}
+              contactPhone={warehouse.contact_phone}
+              contactEmail={warehouse.contact_email}
+            />
+          );
+        })}
       </div>
-      {data.map((warehouse) => {
-        return (
-          <WarehouseInfo
-            key={warehouse.id}
-            id={warehouse.id}
-            warehouseName={warehouse.warehouse_name}
-            address={warehouse.address}
-            contactName={warehouse.contact_name}
-            contactPhone={warehouse.contact_phone}
-            contactEmail={warehouse.contact_email}
-          />
-        );
-      })}
     </div>
   ) : (
     ""

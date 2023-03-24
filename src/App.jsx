@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import WarehouseList from "./pages/WarehouseList/WarehouseList";
 import InventoryList from "./pages/InventoryList/InventoryList";
 import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
@@ -9,7 +10,7 @@ import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 function App() {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/warehouses" element={<WarehouseList />} />
         <Route path="/warehouses/:id" element={WarehouseDetails} />

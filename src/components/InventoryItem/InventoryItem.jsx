@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 
 import deleteButton from "../../assets/Icons/delete_outline-24px.svg";
 import editButton from "../../assets/Icons/edit-24px.svg";
@@ -95,11 +96,7 @@ const InventoryItem = ({
                 className="inventory__link--modifier"
                 to={`inventorys/edit/${id}`}
               >
-                <img
-                  className="inventory__edit-button"
-                  src={editButton}
-                  alt="inventory-edit-button"
-                />
+                <Edit className="inventory__edit-button" />
               </Link>
             </li>
           </ul>

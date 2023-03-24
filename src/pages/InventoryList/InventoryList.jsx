@@ -29,49 +29,51 @@ const InventoryList = () => {
     document.title = "Inventory Page";
   }, []);
   return data ? (
-    <div className="inventory-list">
-      <div className="inventory__info--big-screens">
-        <div className="inventory__wrapper">
-          <p className="inventory__title--big-screens">inventory item</p>
-          <img className="inventory__image" src={sort} alt="" />
+    <div className="inventory-list--layout">
+      <div className="inventory-list">
+        <div className="inventory__info--big-screens">
+          <div className="inventory__wrapper">
+            <p className="inventory__title--big-screens">inventory item</p>
+            <img className="inventory__image" src={sort} alt="" />
+          </div>
+          <div className="inventory__wrapper">
+            <p className="inventory__title--big-screens">category</p>
+            <img className="inventory__image" src={sort} />
+          </div>
+          <div className="inventory__wrapper">
+            <p className="inventory__title--big-screens">status</p>
+            <img className="inventory__image" src={sort} alt="" />
+          </div>
+          <div className="inventory__wrapper">
+            <p className="inventory__title--big-screens">qty</p>
+            <img className="inventory__image" src={sort} />
+          </div>
+          <div className="inventory__wrapper">
+            <p className="inventory__title--big-screens">warehouse</p>
+            <img className="inventory__image" src={sort} />
+          </div>
+          <div className="inventory__wrapper">
+            <p className="inventory__title--big-screens inventory__title--big-screens--modifier">
+              actions
+            </p>
+          </div>
         </div>
-        <div className="inventory__wrapper">
-          <p className="inventory__title--big-screens">category</p>
-          <img className="inventory__image" src={sort} />
-        </div>
-        <div className="inventory__wrapper">
-          <p className="inventory__title--big-screens">status</p>
-          <img className="inventory__image" src={sort} alt="" />
-        </div>
-        <div className="inventory__wrapper">
-          <p className="inventory__title--big-screens">qty</p>
-          <img className="inventory__image" src={sort} />
-        </div>
-        <div className="inventory__wrapper">
-          <p className="inventory__title--big-screens">warehouse</p>
-          <img className="inventory__image" src={sort} />
-        </div>
-        <div className="inventory__wrapper">
-          <p className="inventory__title--big-screens inventory__title--big-screens--modifier">
-            actions
-          </p>
-        </div>
+        {data.map((inventory) => {
+          // console.log(getWarehouse(inventory.warehouse_id));
+          return (
+            <InventoryItem
+              apiUrl={apiUrl}
+              warehouseId={inventory.warehouse_id}
+              key={inventory.id}
+              id={inventory.id}
+              itemName={inventory.item_name}
+              category={inventory.category}
+              status={inventory.status}
+              quantity={inventory.quantity}
+            />
+          );
+        })}
       </div>
-      {data.map((inventory) => {
-        // console.log(getWarehouse(inventory.warehouse_id));
-        return (
-          <InventoryItem
-            apiUrl={apiUrl}
-            warehouseId={inventory.warehouse_id}
-            key={inventory.id}
-            id={inventory.id}
-            itemName={inventory.item_name}
-            category={inventory.category}
-            status={inventory.status}
-            quantity={inventory.quantity}
-          />
-        );
-      })}
     </div>
   ) : (
     ""
