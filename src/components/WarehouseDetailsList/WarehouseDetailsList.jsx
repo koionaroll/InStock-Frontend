@@ -8,17 +8,17 @@ import { useParams, Link} from "react-router-dom";
 
 function WarehouseDetailsList() {
   const [selectedWarehouse, setSelectedWarehouse] = useState({});
+  const [inventory, setInventory] = useState([])
   const  {warehouseId}  = useParams();
   const apiUrl = "http://localhost:5050";
-
-  console.log(warehouseId)
   
   useEffect(() => {
-  getData();
+  getWarehouseData();
+  getInventoryData();
   document.title = "warehouseIDname";
   }, []);
 
-  const getData = () =>{
+  const getWarehouseData = () =>{
     axios
     .get(apiUrl + "/warehouses/"+ warehouseId)
     .then((res) => {
@@ -27,18 +27,25 @@ function WarehouseDetailsList() {
     .catch((error) => {
       console.error("Error: ", error);
     });
-  };
-  console.log(selectedWarehouse.warehouse_name)
-  
+  };  
 
-  
+  const getInventoryData = () =>{
+    axios
+    .get(apiUrl + "/warehouses/"+ warehouseId + "/inventories")
+    .then((res) => {
+      setInventory(res.data);
+    })
+    .catch((error) => {
+      console.error("Error: ", error);
+    });
+  };  
+
+
   return (
     <>
       <div className="layout">
         <ListDetailsHeader warehouseInfo = {selectedWarehouse}/>
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        {inventory.map((item) => (<ListItem element={item}/>))}
       </div>
     </>
   );
