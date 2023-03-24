@@ -1,0 +1,198 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.editInventory {
+    background-color: $primary-third;
+    margin: 0px 16px;
+    position: relative;
+    top: -4rem;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    border-radius: 4px;
+        @include tablet {
+            top: -6.36rem;
+            margin: 0px 32px;   
+        }
+        @include desktop {
+            margin: 0px 63px;   
+        }
+
+    &__wrapper {
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__section1 {
+        padding: 16px 0px 24px;
+        border-bottom: 1.5px solid $secondary-second;
+        @include tablet {
+            width: 50%;
+            border-bottom: none;
+        }
+    }
+
+    &__section2 {
+        padding: 16px 0px 24px;
+        @include tablet {
+            width: 50%;
+            border-bottom: none;
+        }
+    }
+
+    &__header {
+        color: $primary-first;
+        display: flex;
+        gap: .5rem;
+        padding: 24px;
+        border-bottom: 1.5px solid $secondary-second;
+        @include tablet {
+            padding: 32px 36px;
+        }
+        @include desktop {
+            padding: 32px 40px;
+        }
+    }
+
+    &__back__btn {
+        display: flex;
+    }
+
+    &__details1,
+    &__details2 {
+        padding: 0px 24px;
+        @include tablet {
+            padding: 0px 32px;
+            border-right: 1.5px solid $secondary-second;
+        }
+        @include desktop {
+            padding: 0px 40px;
+        }
+    }
+
+    &__details1 {
+        @include tablet {
+            border-right: 1.5px solid $secondary-second;
+        }
+    }
+
+    &__title {
+        color: $primary-first;
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 600;
+        @include tablet {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+    }
+
+    &__subtitle {
+        color: $primary-first;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;
+        margin-bottom:  4px;
+        @include tablet {
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    &__input {
+        border: 1px solid $secondary-second;
+        border-radius: 20px;
+        padding: 8px;
+    }
+
+    &__input--category {
+        -webkit-appearance: none;
+        background-image: url(../../assets/Icons/arrow_drop_down-24px.svg);
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: center;
+        padding: 5px 10px;
+    }
+
+    &__status {
+        display: flex;
+    }
+    
+    &__instock,
+    &__outofstock {
+        width: 50%;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        display: flex;
+        gap: .5rem;
+        color: $secondary-first;
+        @include tablet {
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    &__input--warehouse {
+        -webkit-appearance: none;
+        background-image: url(../../assets/Icons/arrow_drop_down-24px.svg);
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: center;
+        padding: 5px 10px;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        text-align: center;
+        padding: 16px 16px;
+        font-size: 13;
+        line-height: 20px;
+        font-weight: 600;
+        @include tablet {
+            justify-content: end;
+            padding: 16px 24px;
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    &__cancel__btn {
+        color: $secondary-first;
+        background-color: $primary-third;
+        border: 1px solid $secondary-second;
+        border-radius: 50px;
+        width: 50%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-decoration: none;
+        @include tablet {
+            width: 10%;
+        }
+        @include desktop {
+            width: 7%;
+        }
+    }
+
+    &__save__btn {
+        color: $primary-third;
+        background-color: $primary-second ;
+        border-radius: 50px;
+        width: 50%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-decoration: none;
+        @include tablet {
+            width: 10%;
+        }
+        @include desktop {
+            width: 7%;
+        }
+    }
+}
