@@ -1,0 +1,185 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  &--container {
+    width: 100%;
+    background-color: $primary-third;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $secondary-second;
+    padding: 1.5rem;
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+
+    @include tablet {
+      padding: 1.5rem;
+    }
+  }
+
+  &--back {
+    align-self: center;
+    min-width: 1.75rem;
+    max-height: 1.75rem;
+  }
+
+  &--location {
+    font-size: 1.75rem;
+    color: #13183c;
+
+    &-container {
+      gap: 0.75rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &--edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: $primary-second;
+    @include tablet {
+      width: 5.5rem;
+      height: 2.5rem;
+      border-radius: 50px;
+    }
+
+    &--color {
+      color: $primary-third;
+    }
+
+    &--label {
+      display: none;
+      color: $primary-third;
+      font-size: 1rem;
+      padding-left: 0.25rem;
+      @include tablet {
+        display: unset;
+      }
+    }
+  }
+}
+
+.contact {
+  &--container {
+    width: 100%;
+    background-color: $primary-third;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid $secondary-second;
+
+    @include tablet {
+      gap: unset;
+      justify-content: space-between;
+      border-bottom: none;
+    }
+
+    &--tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+
+      @include tablet {
+        border-left: 1px solid $secondary-second;
+        padding-left: 4rem;
+        gap: 5rem;
+      }
+
+      @include desktop {
+        padding-right: 6rem;
+      }
+    }
+  }
+
+  &--label {
+    color: #5c667e;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  &--details {
+    color: #13183c;
+    font-weight: 600;
+    font-size: 0.8125rem;
+  }
+}
+
+.warehouse__status {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  border-radius: 3.125rem;
+  padding: 0.25rem 0.5rem;
+  @include tablet {
+    margin: 0;
+  }
+  &--instock {
+    color: $supporting-first;
+    background: rgba(21, 132, 99, 0.07);
+  }
+  &--out-of-stock {
+    color: $supporting-second;
+    background: rgba(201, 69, 21, 0.07);
+  }
+}
+
+.details--label {
+  color: $secondary-first;
+  font-size: 0.8125rem;
+  font-weight: 600;
+
+  @include tablet {
+    display: none;
+  }
+
+  &--container {
+    width: 100%;
+    display: none;
+    font-size: 0.8125rem;
+    background-color: $background-second;
+
+    @include tablet {
+      gap: 1rem;
+      padding: 0.5rem 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &--tablet {
+    width: 100%;
+    font-weight: 600;
+    color: $secondary-first;
+    display: unset;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+      width: 30%;
+    }
+
+    &--action {
+      width: 100%;
+      color: $secondary-first;
+      font-weight: 600;
+      width: 20%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}

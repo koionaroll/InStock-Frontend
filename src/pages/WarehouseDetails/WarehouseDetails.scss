@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.WarehouseDetails--layout{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -4rem;
+    @include tablet{
+        top: -5.75rem;   
+    }
+}
+

@@ -4,6 +4,9 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
+// import WarehouseList from "./pages/WarehouseList/WarehouseList";
+// import InventoryList from "./pages/InventoryList/InventoryList";
+// import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 
 
 function App() {
