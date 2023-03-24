@@ -6,13 +6,8 @@
     justify-content: center;
     position: relative;
     top: -4rem;
-    left:0;
-    right:0;
     @include tablet{
         top: -5.75rem;   
     }
-}
-.background{
-     background-color: $background-second;
 }
 

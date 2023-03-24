@@ -34,10 +34,11 @@
         color: $primary-first;
 
         @include tablet {
-            width: 30%
+            width: 100%
         }
         &-item{
             @extend .details--info;
+            text-decoration: none;
             display: flex;
             align-items: center;
             color: $primary-second;
