@@ -23,10 +23,10 @@ const WarehouseInfo = ({
           <div className="warehouse__container">
             <p className="warehouse__title">warehouse</p>
             <div className="warehouse__second-container">
-              <Link className="warehouse__link" to={`/${id}`}>
+              <Link className="warehouse__link" to={id}>
                 <p className="warehouse__info">{warehouseName}</p>
               </Link>
-              <Link className="warehouse__link" to={`/${id}`}>
+              <Link className="warehouse__link" to={id}>
                 <img className="warehouse__info" src={arrowBack} />
               </Link>
             </div>
