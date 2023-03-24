@@ -1,0 +1,91 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.details {
+    &--container {
+        width: 100%;
+        background-color: $primary-third;
+        display: grid;
+        height: 11rem;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        grid-template-columns: 2;
+        grid-template-rows: 2;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid $secondary-second;
+
+        @include tablet {
+            gap: 1rem;
+            display: flex;
+            height: unset;
+            justify-content: space-between;
+        }
+    }
+
+    &--container:last-child {
+        border-bottom: none;
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+    }
+
+    &--info {
+        font-size: .8125rem;
+        font-weight: 600;
+        color: $primary-first;
+
+        @include tablet {
+            width: 30%
+        }
+        &-item{
+            @extend .details--info;
+            display: flex;
+            align-items: center;
+            color: $primary-second;
+        }
+    }
+
+    
+}
+
+.button {
+    &--container {
+        display: flex;
+        gap: 1rem;
+
+        @include tablet {
+            width: 20%;
+            display: flex;
+            justify-content: flex-end;
+
+        }
+    }
+
+    &--delete {
+        border: none;
+        background-color: $primary-third;
+        display: flex;
+        justify-content: center;
+        width: 1.5rem;
+    }
+
+    &--edit-1 {
+        @extend .button--delete;
+        margin-left: auto;
+        display: none;
+
+        @include tablet {
+            display: unset;
+            margin-left: 0;
+        }
+    }
+
+    &--edit-2 {
+        @extend .button--delete;
+        margin-left: auto;
+
+        @include tablet {
+            display: none;
+            margin-left: 0;
+        }
+    }
+}

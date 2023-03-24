@@ -5,9 +5,11 @@ import Footer from "./components/Footer/Footer";
 import WarehouseList from "./pages/WarehouseList/WarehouseList";
 // import WarehouseDetails from from "./pages/WarehouseDetails/WarehouseDetails"
 
+
 function App() {
   return (
     <BrowserRouter>
+
       {/* <Header /> */}
       <Routes>
         {/* <Route path="/warehouses" element={<WarehouseList />} />
@@ -20,6 +22,7 @@ function App() {
         <Route path="/inventory/edit/:itemId" element={<Inventory />} /> */}
       </Routes>
       <Footer />
+
     </BrowserRouter>
   );
 }
