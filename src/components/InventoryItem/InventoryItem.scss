@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.warehouse {
+.inventory {
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   border-top: 0.063rem solid $secondary-second;
@@ -28,12 +28,35 @@
       align-items: center;
       width: 20%;
     }
-    &:nth-child(4) {
+    &:nth-child(2) {
+      order: 2;
       @include tablet {
-        width: 33%;
+        order: 3;
+      }
+    }
+    &:nth-child(3) {
+      order: 3;
+      @include tablet {
+        order: 2;
+      }
+    }
+    &:nth-child(4) {
+      order: 4;
+      @include tablet {
+        width: 10%;
       }
     }
     &:nth-child(5) {
+      order: 5;
+    }
+    &:nth-child(6) {
+      order: 6;
+      @include tablet {
+        width: 30%;
+      }
+    }
+    &:nth-child(7) {
+      order: 6;
       display: flex;
       padding: 0.5rem 0;
       width: 100%;
@@ -43,6 +66,14 @@
         gap: 1rem;
         width: 20%;
       }
+    }
+  }
+  &__container--empty {
+    padding: 0.5rem 0;
+    width: 50%;
+    order: 5;
+    @include tablet {
+      display: none;
     }
   }
   &__title {
@@ -81,6 +112,23 @@
     display: inline;
     list-style-type: none;
     width: 50%;
+  }
+  &__status {
+    text-transform: uppercase;
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    margin-top: 1rem;
+    @include tablet {
+      margin: 0;
+    }
+    &--instock {
+      color: $supporting-first;
+      background: rgba(21, 132, 99, 0.07);
+    }
+    &--out-of-stock {
+      color: $supporting-second;
+      background: rgba(201, 69, 21, 0.07);
+    }
   }
   &__link {
     margin: 0;

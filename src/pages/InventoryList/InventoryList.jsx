@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import InventoryInfo from "../../components/InventoryInfo/InventoryInfo";
+import InventoryItem from "../../components/InventoryItem/InventoryItem";
+import sort from "../../assets/Icons/sort-24px.svg";
 
-import arrowBack from "../../assets/Icons/chevron_right-24px.svg";
+import "./InventoryList.scss";
 
 const InventoryList = () => {
   //We set our data state to an empty array
@@ -13,7 +14,7 @@ const InventoryList = () => {
 
   const getInventory = () => {
     axios
-      .get(apiUrl + "/inventory")
+      .get(apiUrl + "/inventories")
       .then((response) => {
         const responseData = response.data;
         setData(responseData);
@@ -28,40 +29,46 @@ const InventoryList = () => {
     document.title = "Inventory Page";
   }, []);
   return data ? (
-    <div className="warehouse-list">
-      <div className="warehouse__info--big-screens">
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">warehouse</p>
-          <img className="warehouse__image" src={arrowBack} alt="" />
+    <div className="inventory-list">
+      <div className="inventory__info--big-screens">
+        <div className="inventory__wrapper">
+          <p className="inventory__title--big-screens">inventory item</p>
+          <img className="inventory__image" src={sort} alt="" />
         </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">address</p>
-          <img className="warehouse__image" src={arrowBack} />
+        <div className="inventory__wrapper">
+          <p className="inventory__title--big-screens">category</p>
+          <img className="inventory__image" src={sort} />
         </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">contact name</p>
-          <img className="warehouse__image" src={arrowBack} alt="" />
+        <div className="inventory__wrapper">
+          <p className="inventory__title--big-screens">status</p>
+          <img className="inventory__image" src={sort} alt="" />
         </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens">contact information</p>
-          <img className="warehouse__image" src={arrowBack} />
+        <div className="inventory__wrapper">
+          <p className="inventory__title--big-screens">qty</p>
+          <img className="inventory__image" src={sort} />
         </div>
-        <div className="warehouse__wrapper">
-          <p className="warehouse__title--big-screens warehouse__title--big-screens--modifier">
+        <div className="inventory__wrapper">
+          <p className="inventory__title--big-screens">warehouse</p>
+          <img className="inventory__image" src={sort} />
+        </div>
+        <div className="inventory__wrapper">
+          <p className="inventory__title--big-screens inventory__title--big-screens--modifier">
             actions
           </p>
         </div>
       </div>
-      {data.map((warehouse) => {
+      {data.map((inventory) => {
+        // console.log(getWarehouse(inventory.warehouse_id));
         return (
-          <InventoryInfo
-            key={warehouse.id}
-            id={warehouse.id}
-            warehouseName={warehouse.warehouse_name}
-            address={warehouse.address}
-            contactName={warehouse.contact_name}
-            contactPhone={warehouse.contact_phone}
-            contactEmail={warehouse.contact_email}
+          <InventoryItem
+            apiUrl={apiUrl}
+            warehouseId={inventory.warehouse_id}
+            key={inventory.id}
+            id={inventory.id}
+            itemName={inventory.item_name}
+            category={inventory.category}
+            status={inventory.status}
+            quantity={inventory.quantity}
           />
         );
       })}

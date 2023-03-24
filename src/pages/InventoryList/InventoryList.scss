@@ -1,0 +1,55 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.inventory {
+  &-list {
+    display: flex;
+    flex-direction: column;
+  }
+  &__info--big-screens {
+    display: none;
+    @include tablet {
+      background-color: $background-second;
+      display: flex;
+      flex-direction: row;
+      padding: 0 1.5rem;
+    }
+  }
+  &__wrapper {
+    padding: 0.688rem 0;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      background-color: $background-second;
+      width: 20%;
+      gap: 0.5rem;
+    }
+    &:nth-child(4) {
+      width: 10%;
+    }
+    &:nth-child(5) {
+      width: 30%;
+    }
+  }
+  &__title--big-screens {
+    display: none;
+    @include tablet {
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+    }
+    &--modifier {
+      padding-left: 1.25rem;
+    }
+  }
+  &__image {
+    display: none;
+    width: 1rem;
+    margin-left: 0.25rem;
+    @include tablet {
+      display: block;
+    }
+  }
+}
