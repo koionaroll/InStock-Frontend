@@ -1,0 +1,138 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.inventory {
+    background-color: $primary-third;
+    margin: 0px 16px;
+    position: relative;
+    top: -4rem;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    border-radius: 4px;
+        @include tablet {
+            top: -6.36rem;
+            margin: 0px 32px;   
+        }
+        @include desktop {
+            margin: 0px 63px;   
+        }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 24px;
+        border-bottom: 1.5px solid $secondary-second;
+        @include tablet {
+            padding: 32px 64px;
+        }
+    }
+
+    &__title {
+        color: $primary-first;
+        display: flex;
+        gap: .5rem;
+    }
+
+    &__edit__btn {
+        display: flex;
+        background-color: $primary-second;
+        border-radius: 50px;
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        @include tablet {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 600;
+            padding: 8px 16px;
+            width: 80px;
+            align-items: center;
+            text-decoration: none;
+            color: $primary-third;
+        }
+    }
+
+    &__edit__btn--text {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__back__btn {
+        display: flex;
+    }
+
+    &__details {
+        padding: 12px 24px;
+        @include tablet {
+            padding: 24px 64px;
+            display: flex;
+            gap: 2rem;
+        }
+    }
+
+
+    &__column__1 {
+        @include tablet {
+            border-right: 1.5px solid $secondary-second;
+            width: 50%;
+        }
+    }
+
+    &__column__2 {
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__status,
+    &__quantity {
+        width: 50%;
+    }
+
+    &__sub__title {
+        color: $secondary-first;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+
+    &__content {
+        color: $primary-first;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        margin-bottom: 8px;
+        @include tablet {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__content--instock {
+        color: $supporting-first;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        background-color: rgba(21, 132, 99, 0.07);;
+        border-radius: 50px;
+        padding: 4px 8px;
+        width:fit-content;
+    }
+
+    &__status__quantity {
+        display: flex;
+    }
+}
+
+
+
+
+
+
+
+
+
+

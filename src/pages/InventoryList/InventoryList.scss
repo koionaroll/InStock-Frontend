@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.warehouse {
+.inventory {
   &-list {
     display: flex;
     flex-direction: column;
@@ -43,7 +43,10 @@
       gap: 0.5rem;
     }
     &:nth-child(4) {
-      width: 33%;
+      width: 10%;
+    }
+    &:nth-child(5) {
+      width: 30%;
     }
   }
   &__title--big-screens {

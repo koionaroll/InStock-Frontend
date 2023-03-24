@@ -1,0 +1,32 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/fonts' as *;
+
+
+.add-page__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border: red 1px solid;
+    padding: 1rem 1.5rem;
+    width: 100%;
+
+    &__back {
+        height: 1.25rem;
+        width: 1.25rem;
+        /* border: blue 1px solid; */
+        display: flex;
+    }
+
+    &__title {
+        width: 100%;
+        font-size: 1.5rem;
+        // border: blue solid 1px;
+        font-weight: 700;
+
+        @include tablet {
+            font-size: 2rem;
+        }
+    }
+}
