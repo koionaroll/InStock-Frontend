@@ -1,19 +1,24 @@
 import React from "react";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
-import edit from "../../assets/Icons/edit-24px.svg";
+import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import "./ListDetailsHeader.scss";
 import sort from "../../assets/Icons/sort-24px.svg";
+
+
 
 function ListDetailsHeader({ prop }) {
   return (
     <>
-        <div className="header--background">
-      <div className="header--container">
+      <div className="header--background">
+        <div className="header--container">
           <div className="header--location-container">
             <img className="header--back" src={backArrow} alt="" />
             <h1 className="header--location">Washington</h1>
           </div>
-          <img className="header--edit" src={edit} alt="" />
+          <div className="header--edit">
+            <Edit className="header--edit--color" />
+            <p className="header--edit--label">Edit</p>
+          </div>
         </div>
       </div>
       <div className="contact--container">

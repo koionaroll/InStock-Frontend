@@ -7,9 +7,10 @@
         background-color: $primary-third;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid $secondary-second;
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
         border-top-right-radius: 0.25rem;
         border-top-left-radius: 0.25rem;
 
@@ -36,7 +37,32 @@
     }
 
     &--edit {
-        width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        background-color: $primary-second;
+        @include tablet{
+            width: 5.5rem;
+            height: 2.5rem;
+            border-radius: 50px;
+        }
+
+        &--color{
+            color:$primary-third;
+        }
+
+        &--label{
+            display: none;
+            color: $primary-third;
+            font-size: 1rem;
+            padding-left: 0.25rem;
+            @include tablet{
+                display: unset;
+            }
+        }
     }
 }
 

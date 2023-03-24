@@ -5,7 +5,7 @@ import ListDetailsHeader from "../ListDetailsHeader/ListDetailsHeader";
 function WarehouseDetailsList() {
   return (
     <>
-      <div className="list">
+      <div className="layout">
         <ListDetailsHeader />
         <ListItem />
         <ListItem />

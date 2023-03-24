@@ -1,19 +1,14 @@
 import React from "react";
 import "./WarehouseDetails.scss";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+
 import WarehouseDetailsList from "../../components/WarehouseDetailsList/WarehouseDetailsList";
 
 function WarehouseDetails() {
   return (
     <>
-      <div className="background">
-        <Header />
         <div className="WarehouseDetails--layout">
           <WarehouseDetailsList />
         </div>
-        <Footer />
-      </div>
     </>
   );
 }

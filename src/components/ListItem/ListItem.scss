@@ -70,6 +70,7 @@
 
     &--edit-1 {
         @extend .button--delete;
+        fill: $primary-second;
         margin-left: auto;
         display: none;
 
@@ -81,6 +82,7 @@
 
     &--edit-2 {
         @extend .button--delete;
+        fill: $primary-second;
         margin-left: auto;
 
         @include tablet {

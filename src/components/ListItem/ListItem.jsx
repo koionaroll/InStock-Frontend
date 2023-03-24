@@ -1,6 +1,6 @@
 import React from "react";
 import trash from "../../assets/Icons/delete_outline-24px.svg";
-import edit from "../../assets/Icons/edit-24px.svg";
+import { ReactComponent as Edit} from "../../assets/Icons/edit-24px.svg";
 import chevron from "../../assets/Icons/chevron_right-24px.svg";
 import "./ListItem.scss";
 
@@ -30,13 +30,9 @@ function ListItem() {
           <button className="button--delete">
             <img src={trash} alt="" />
           </button>
-          <button className="button--edit-1">
-            <img src={edit} alt="" />
-          </button>
+          <Edit className="button--edit-1"/>
         </div>
-        <button className="button--edit-2">
-          <img src={edit} alt="" />
-        </button>
+        <Edit className="button--edit-2"/>
       </div>
     </>
   );

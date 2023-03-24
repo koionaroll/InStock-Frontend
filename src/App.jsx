@@ -8,7 +8,7 @@ import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 function App() {
   return (
     <BrowserRouter>
-    {/* <Header /> */}
+    <Header />
     <Routes>
 {/*       
       <Route path="/warehouses" element={<Warehouses />} />
@@ -20,7 +20,7 @@ function App() {
       <Route path="/inventory/add" element={<Inventory />} />
       <Route path="/inventory/edit/:itemId" element={<Inventory />} /> */}
     </Routes>
-    {/* <Footer /> */}
+    <Footer />
     </BrowserRouter>
   );
 }
