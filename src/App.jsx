@@ -10,6 +10,8 @@ import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem'
 
 
 
+console.log("hello")
+
 function App() {
   return (
     <BrowserRouter>
