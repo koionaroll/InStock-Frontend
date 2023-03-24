@@ -1,3 +1,4 @@
+
 import './App.scss';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header/Header"
@@ -6,6 +7,7 @@ import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
 import EditInventoryItem from './components/EditInventoryItem/EditInventoryItem';
 import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem'
+
 
 
 function App() {

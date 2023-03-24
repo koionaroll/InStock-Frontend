@@ -34,10 +34,11 @@
         color: $primary-first;
 
         @include tablet {
-            width: 30%
+            width: 100%
         }
         &-item{
             @extend .details--info;
+            text-decoration: none;
             display: flex;
             align-items: center;
             color: $primary-second;
@@ -70,6 +71,7 @@
 
     &--edit-1 {
         @extend .button--delete;
+        fill: $primary-second;
         margin-left: auto;
         display: none;
 
@@ -81,6 +83,7 @@
 
     &--edit-2 {
         @extend .button--delete;
+        fill: $primary-second;
         margin-left: auto;
 
         @include tablet {
