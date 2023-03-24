@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import "./ListDetailsHeader.scss";
@@ -6,14 +7,16 @@ import sort from "../../assets/Icons/sort-24px.svg";
 
 
 
-function ListDetailsHeader({ prop }) {
+function ListDetailsHeader({ warehouseInfo }) {
   return (
     <>
       <div className="header--background">
         <div className="header--container">
           <div className="header--location-container">
-            <img className="header--back" src={backArrow} alt="" />
-            <h1 className="header--location">Washington</h1>
+            <Link to = "/warehouses">
+              <img className="header--back" src={backArrow} alt=""/>
+            </Link>
+            <h1 className="header--location">{warehouseInfo.warehouse_name}</h1>
           </div>
           <div className="header--edit">
             <Edit className="header--edit--color" />
@@ -25,19 +28,19 @@ function ListDetailsHeader({ prop }) {
         <div>
           <p className="contact--label">WAREHOUSE ADDRESS:</p>
           <p className="contact--details">
-            33 Pearl Street SW, Washington, USA
+          {warehouseInfo.address}          
           </p>
         </div>
         <div className="contact--container--tablet">
           <div>
             <p className="contact--label">CONTACT NAME:</p>
-            <p className="contact--details">Graeme Lyon</p>
-            <p className="contact--details">Warehouse Manager</p>
+            <p className="contact--details">{warehouseInfo.contact_name}</p>
+            <p className="contact--details">{warehouseInfo.contact_position}</p>
           </div>
           <div>
             <p className="contact--label">CONTACT INFORMATION:</p>
-            <p className="contact--details">+1 (647) 504-0911</p>
-            <p className="contact--details">glyon@instock.com</p>
+            <p className="contact--details">{warehouseInfo.contact_phone}</p>
+            <p className="contact--details">{warehouseInfo.contact_email}</p>
           </div>
         </div>
       </div>
