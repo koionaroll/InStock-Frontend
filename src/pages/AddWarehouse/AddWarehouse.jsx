@@ -3,6 +3,7 @@ import AddPageMain from "../../components/AddPageMain/AddPageMain";
 import WarehousePageForm from "../../components/WarehousePageForm/WarehousePageForm";
 
 const AddWarehouse = () => {
+    
     const placeHolderInfo = {
         name: "Warehouse Name",
         streetAddress: "Street Address",
