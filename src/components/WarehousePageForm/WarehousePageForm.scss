@@ -1,0 +1,124 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/fonts' as *;
+
+.form {
+
+    // display: flex;
+    // flex-direction: column;
+    background-color: $background-second;
+
+    padding: 1rem 1.5rem;
+
+
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        // gap: 2rem;
+        background-color: white;
+
+
+        @include tablet {
+            flex-direction: row;
+            padding: 1rem 0rem 1rem 0rem;
+
+        }
+    }
+
+    &__title {
+        font-size: 1.15rem;
+    }
+
+    &__details-left {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-top: solid 1px $secondary-second;
+        background-color: white;
+
+
+        @include tablet {
+            border-top: none;
+            width: 100%;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+        }
+    }
+
+    &__details-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-top: solid 1px $secondary-second;
+        background-color: white;
+
+
+        @include tablet {
+            border-top: none;
+            border-left: solid 1px $secondary-second;
+            width: 100%;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+
+        }
+    }
+
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    &__input {
+        border-radius: 1.25rem;
+        padding: 0.25rem 1rem;
+        border: 1px solid $secondary-second;
+    }
+
+    &__buttons {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-around;
+
+        @include tablet {
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+    }
+
+    &__add {
+        background-color: $primary-second;
+        color: white;
+        border-radius: 1.25rem;
+        width: 100%;
+        border: none;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+
+        @include tablet {
+            width: 10rem;
+            
+        }
+    }
+
+    &__cancel {
+        background-color: $primary-third;
+        color: $secondary-first;
+        border-radius: 1.25rem;
+        width: 100%;
+        border: 1px solid $secondary-second;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 600;
+
+        @include tablet {
+            width: 5rem;
+        }
+    }
+    
+}
