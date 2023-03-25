@@ -13,7 +13,7 @@ function ListDetailsHeader({ warehouseInfo }) {
       <div className="header--background">
         <div className="header--container">
           <div className="header--location-container">
-            <Link to = "/warehouses">
+            <Link to = "/">
               <img className="header--back" src={backArrow} alt=""/>
             </Link>
             <h1 className="header--location">{warehouseInfo.warehouse_name}</h1>
