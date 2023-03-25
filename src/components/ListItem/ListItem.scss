@@ -32,21 +32,50 @@
         font-size: .8125rem;
         font-weight: 600;
         color: $primary-first;
-
+        flex-direction: column;
         @include tablet {
+            flex-direction: row;
             width: 100%
         }
+
+        
         &-item{
             @extend .details--info;
             text-decoration: none;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             color: $primary-second;
-        }
-    }
 
-    
+            &--row{
+            @extend .details--info-item;
+            flex-direction: row;
+        }
+        }
+    }  
 }
+
+.warehouse__status {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    border-radius: 3.125rem;
+    padding: 0.25rem 0.5rem;
+    width: 7rem;
+    @include tablet {
+      width: unset;
+      margin: 0;
+    }
+    &--instock {
+      color: $supporting-first;
+      background: rgba(21, 132, 99, 0.07);
+    }
+    &--out-of-stock {
+      color: $supporting-second;
+      background: rgba(201, 69, 21, 0.07);
+    }
+  }
 
 .button {
     &--container {

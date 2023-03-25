@@ -5,7 +5,7 @@ import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import WarehouseList from "./pages/WarehouseList/WarehouseList"
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
-import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import EditInventoryItem from './components/EditInventoryItem/EditInventoryItem';
 import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem'
 

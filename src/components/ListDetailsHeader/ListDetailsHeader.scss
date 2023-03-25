@@ -113,27 +113,6 @@
   }
 }
 
-.warehouse__status {
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  border-radius: 3.125rem;
-  padding: 0.25rem 0.5rem;
-  @include tablet {
-    margin: 0;
-  }
-  &--instock {
-    color: $supporting-first;
-    background: rgba(21, 132, 99, 0.07);
-  }
-  &--out-of-stock {
-    color: $supporting-second;
-    background: rgba(201, 69, 21, 0.07);
-  }
-}
-
 .details--label {
   color: $secondary-first;
   font-size: 0.8125rem;
