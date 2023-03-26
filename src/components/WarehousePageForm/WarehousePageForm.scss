@@ -122,7 +122,7 @@
         margin-top: 1rem;
         display: flex;
         justify-content: space-around;
-
+        gap: 1rem;
         @include tablet {
             justify-content: flex-end;
             gap: 1rem;
@@ -143,10 +143,31 @@
         font-size: 1rem;
 
         @include tablet {
+
             width: 10rem;
-            
         }
     }
+
+    &__edit {
+        background-color: $primary-second;
+        color: white;
+        border-radius: 1.25rem;
+        width: 100%;
+        border: none;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+
+        @include tablet {
+
+            width: 5rem;
+        }
+    }
+
+
 
     &__cancel {
         background-color: $primary-third;
