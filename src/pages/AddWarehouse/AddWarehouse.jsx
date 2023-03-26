@@ -1,24 +1,25 @@
 import "../AddWarehouse/AddWarehouse.scss"
-import AddPageMain from "../../components/AddPageMain/AddPageMain";
 import WarehousePageForm from "../../components/WarehousePageForm/WarehousePageForm";
+import PageMainAction from "../../components/PageMainAction/PageMainAction";
 
 const AddWarehouse = () => {
-    
+    document.title = 'Add Warehouse';
+
     const placeHolderInfo = {
-        name: "Warehouse Name",
-        streetAddress: "Street Address",
+        warehouse_name: "Warehouse Name",
+        address: "Street Address",
         city: "City",
         country: "Country",
-        contact: "Contact Name",
-        position: "Position",
-        phone: "Phone Number",
-        email: "Email"
+        contact_name: "Contact Name",
+        contact_position: "Position",
+        contact_phone: "Phone Number",
+        contact_email: "Email"
     };
 
     return ( 
         <>
-            <AddPageMain title={"Warehouse"} />
-            <WarehousePageForm  placeHolderInfo={placeHolderInfo}/>
+            <PageMainAction title={"Warehouse"} type={"Add"} />
+            <WarehousePageForm formType={"Add"} placeHolderInfo={placeHolderInfo} />
         </>
      );
 }
