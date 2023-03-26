@@ -1,6 +1,6 @@
 
 import "../WarehousePageForm/WarehousePageForm.scss";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useFetcher, useNavigate} from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import errorIcon from "../../assets/Icons/error-24px.svg";
@@ -18,9 +18,9 @@ const WarehousePageForm = ({placeHolderInfo}) => {
     const [contactPhone, setContactPhone] = useState("");
     const [contactEmail, setContactEmail] = useState("");
 
-    const [textFieldError, setTextFieldError] = useState("");
+    const [textFieldError, setTextFieldError] = useState("--error");
 
-    const [WarehouseNameError, setWarehouseNameError] = useState(false);
+    const [warehouseNameError, setWarehouseNameError] = useState(false);
     const [addressError, setaddressError] = useState(false);
     const [cityError, setCityError] = useState(false);
     const [countryError, setCountryError] = useState(false);
@@ -45,24 +45,7 @@ const WarehousePageForm = ({placeHolderInfo}) => {
         })
     }
 
-    // TODO after warehouse state has been retrieved
-    // useEffect(() => {
-    //     setTextFieldError("")
-    // }, [])
-
-
-
     document.title = 'Add Warehouse';
-
-
-
-    const handleError = () => {
-       
-            console.log('does this run?')
-            alert("Here7777")
-            
-        
-    }
 
     const handleFormSubmit = (event) => {
         // const {name, className, value} = event.target;
@@ -81,59 +64,40 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
         if (warehouseName.length <= 0 ){
             console.log("here1234")
-            // setTextFieldError(`--error`);
             setWarehouseNameError(true);
-            // handleError();
-            // return;
         }
 
         if (address.length <= 0 ) {
-            // setTextFieldError("--error");
             console.log("here555")
             setaddressError(true)
-            // handleError();
-            // return;
         }
         if (city.length <= 0) {
-            // setTextFieldError("--error");
             setCityError(true);
-            // handleError();
-            // return;
         }
+
+        // handleInputChange(event)
+
         if (country.length <=0) {
-            // setTextFieldError("--error");
             setCountryError(true);
-            // handleError();
-            // return;
+
         }
         if (contactName.length <= 0) {
-            // setTextFieldError("--error");
             setNameError(true)
-            // handleError();
-            // return;
         }
         if (contactPosition.length <= 0) {
-            // setTextFieldError("--error");
             setPositionError(true)
-            // handleError();
-            // return;
         }
         if (contactPhone.length <= 0) {
-            // setTextFieldError("--error");
             setPhoneError(true)
-            // handleError();
-            // return;
         }
         if (contactEmail.length <= 0) {
             console.log('email error should be true')
-            // setTextFieldError("--error");
             setEmailError(true);
-            // handleError();
-            // return;
-            // return;
         }
 
-        if (contactEmail === "" || contactPosition === "") {
+        if (contactEmail === "" || warehouseName === "" || contactPosition === "" || contactName === ""
+            || contactPhone === "" || city === "" || country === "" || address === "") {
+
             return;
         }
         
@@ -167,34 +131,58 @@ const WarehousePageForm = ({placeHolderInfo}) => {
         setWarehouseName(event.target.value);
     }
 
-    // useEffect(() => {
-    //     console.log(emailError)
-    //     if(emailError || phoneError || positionError || nameError || countryError || cityError || addressError || WarehouseNameError){
-    //         setIsFormError(true);
-    //     }
-        
-    // }, [isFormError, emailError, phoneError , positionError , nameError , countryError , cityError , addressError , WarehouseNameError])
-
-    // if(isFormError){
-    //     alert('form error')
-    //     return null;
-    // }
 
     // useEffect(()=>{
        
     // }, [isFormError, emailError, phoneError , positionError , nameError , countryError , cityError , addressError , WarehouseNameError]);
+
+    // TODO ask how to use use Effect instead?
+    // useEffect (() => {
+    //     // value === "" ? setaddressError(true) : setaddressError(false);
+        
+    //     return () => {
+    //         console.log(city)
+    //         // do something with dependency
+    //         city === "" ? setCityError(true) : setCityError(false);
+    //     }
+
+    // }, [city]) ;
 
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         if(name === 'address'){
             setAddress(value);
-            if(value === ''){
-                setaddressError(true)
-            } else {
-                setaddressError(false)
-            }
-           
+            value === "" ? setaddressError(true) : setaddressError(false);    
+        }
+        if (name === "city") {
+            setCity(value)
+            value === "" ? setCityError(true) : setCityError(false);
+
+        }
+        if (name === "country") {
+            setCountry(value)
+            value === "" ? setCountryError(true) : setCountryError(false);
+        }
+        if (name === "contactName") {
+            setContactName(value)
+            value === "" ? setNameError(true) : setNameError(false);
+        }
+        if (name === "contactPosition") {
+            setContactPosition(value)
+            value === "" ? setPositionError(true) : setPositionError(false);
+        }
+        if (name === "warehouseName") {
+            setWarehouseName(value);
+            value === "" ? setWarehouseNameError(true) : setWarehouseNameError(false);
+        }
+        if (name === "contactPhone") {
+            setContactPhone(value);
+            value === "" ? setPhoneError(true) : setPhoneError(false);
+        }
+        if (name === "contactEmail") {
+            setContactEmail (value);
+            value === "" ? setEmailError(true) : setEmailError(false);
         }
     }
     
@@ -210,11 +198,11 @@ const WarehousePageForm = ({placeHolderInfo}) => {
                         <div className="form__input-container">
                             <label htmlFor="name" className="form__label"> Warehouse Name </label>
                             {/* (value) => setFormValues((prevFormValues) => ({...prevFormValues, warehouse_name: value})) */}
-                            <input value={warehouseName} onChange={handleSetFormValues} id="name" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.name}/>
-                            
-                           <div className={`${ WarehouseNameError ? "form__error" : "form__valid"}`}> 
-                                <img className={`${ WarehouseNameError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
-                                <p className={`${ WarehouseNameError ? "form__error-text" : ""}`}>  This field is required </p>
+                            <input name="warehouseName" value={warehouseName} onChange={handleInputChange} id="name" className={`form__input ${warehouseNameError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.name}/>
+                            {/* `form__input form__input${textFieldError}` */}
+                           <div className={`${ warehouseNameError ? "form__error" : "form__valid"}`}> 
+                                <img className={`${ warehouseNameError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
+                                <p className={`${ warehouseNameError ? "form__error-text" : ""}`}>  This field is required </p>
                            </div>
 
                         </div>
@@ -224,7 +212,7 @@ const WarehousePageForm = ({placeHolderInfo}) => {
                             <input 
                             name="address"
                             value={address}
-                             onChange={handleInputChange} id="address" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.streetAddress}/>
+                             onChange={handleInputChange} id="address" className={`form__input ${addressError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.streetAddress}/>
                         
                             <div className={`${ addressError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ addressError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
@@ -235,7 +223,7 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
                         <div className="form__input-container">
                             <label htmlFor="city" className="form__label"> City </label>
-                            <input value={city} onChange={(event => {setCity(event.target.value)})} id="city" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.city}/>
+                            <input name="city" value={city} onChange={handleInputChange} id="city" className={`form__input ${cityError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.city}/>
                         
                             <div className={`${ cityError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ cityError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
@@ -246,7 +234,7 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
                         <div className="form__input-container">
                             <label htmlFor="country" className="form__label"> Country </label>
-                            <input value={country} onChange={event => {setCountry(event.target.value)}} id="country" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.country}/>
+                            <input name="country" value={country} onChange={handleInputChange} id="country" className={`form__input ${countryError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.country}/>
                         
                             <div className={`${ countryError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ countryError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
@@ -262,7 +250,7 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
                         <div className="form__input-container">
                             <label htmlFor="contact_name" className="form__label"> Contact Name </label>
-                            <input value={contactName} onChange={(event) => {setContactName(event.target.value)}} id="contact_name" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.contact}/>
+                            <input name="contactName" value={contactName} onChange={handleInputChange} id="contact_name" className={`form__input ${nameError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.contact}/>
                         
                             <div className={`${ nameError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ nameError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
@@ -273,8 +261,8 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
                         <div className="form__input-container">
                             <label htmlFor="contact_position" className="form__label"> Position </label>
-                            <input value={contactPosition} onChange={(event) => {setContactPosition(event.target.value)}} id="contact_position" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.position}/>
-                        
+                            {/* <input name="contactPosition" value={contactPosition} onChange={(event) => {setContactPosition(event.target.value)}} id="contact_position" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.position}/> */}
+                            <input name="contactPosition" value={contactPosition} onChange={handleInputChange} id="contact_position" className={`form__input ${positionError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.position}/>
                             <div className={`${ positionError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ positionError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
                                 <p className={`${ positionError ? "form__error-text" : ""}`}>  This field is required </p>
@@ -284,7 +272,7 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
                         <div className="form__input-container">
                             <label htmlFor="contact_phone" className="form__label"> Phone Number </label>
-                            <input value={contactPhone} onChange={(event) => {setContactPhone(event.target.value)}} id="contact_phone" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.phone}/>
+                            <input name="contactPhone" value={contactPhone} onChange={handleInputChange} id="contact_phone" className={`form__input ${phoneError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.phone}/>
                         
                             <div className={`${ phoneError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ phoneError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
@@ -295,8 +283,8 @@ const WarehousePageForm = ({placeHolderInfo}) => {
 
                         <div className="form__input-container">
                             <label htmlFor="contact_email" className="form__label"> Email </label>
-                            <input value={contactEmail} onChange={(event) => {setContactEmail(event.target.value)}} id="contact_email" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.email}/>
-                            
+                            {/* <input name="contactEmail" value={contactEmail} onChange={(event) => {setContactEmail(event.target.value)}} id="contact_email" className={`form__input form__input${textFieldError}`} placeholder={placeHolderInfo.email}/> */}
+                            <input name="contactEmail" value={contactEmail} onChange={handleInputChange} id="contact_email" className={`form__input ${emailError ? "form__input--error" : ""}`} placeholder={placeHolderInfo.email}/>
                             <div className={`${ emailError ? "form__error" : "form__valid"}`}> 
                                 <img className={`${ emailError ? "form__error-icon" : ""}`} src={errorIcon} alt="error"/>
                                 <p className={`${ emailError ? "form__error-text" : ""}`}>  This field is required </p>
