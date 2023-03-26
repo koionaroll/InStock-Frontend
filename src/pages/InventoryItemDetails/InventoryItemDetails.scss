@@ -33,9 +33,14 @@
         gap: .5rem;
     }
 
+    &__edit{
+        fill: $primary-third;
+    }
+
     &__edit__btn {
         display: flex;
         background-color: $primary-second;
+        align-items: center;
         border-radius: 50px;
         padding: 8px;
         width: 36px;
@@ -56,6 +61,7 @@
         display: none;
         @include tablet {
             display: flex;
+
         }
     }
 
@@ -107,6 +113,7 @@
         font-weight: 400;
         margin-bottom: 8px;
         @include tablet {
+                padding-right: 2rem;
             margin-bottom: 20px;
         }
     }
@@ -126,6 +133,30 @@
         display: flex;
     }
 }
+
+.item__status {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    border-radius: 3.125rem;
+    padding: 0.25rem 0.5rem;
+    width: 7rem;
+    margin: 0.5rem 0 1rem;
+    @include tablet {
+      width: unset;
+      margin: 0;
+    }
+    &--instock {
+      color: $supporting-first;
+      background: rgba(21, 132, 99, 0.07);
+    }
+    &--out-of-stock {
+      color: $supporting-second;
+      background: rgba(201, 69, 21, 0.07);
+    }
+  }
 
 
 
