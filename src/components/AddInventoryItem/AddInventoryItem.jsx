@@ -1,17 +1,18 @@
 import React from "react";
 import "../AddInventoryItem/AddInventoryItem.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 
 import back from '../../assets/Icons/arrow_back-24px.svg';
 
 function AddInventoryItem() {
+    const navigate = useNavigate();
   return (
     <>
     <main>
         <section className='addInventory'>
                 
             <div className='addInventory__header'>                    
-                <NavLink to="/" className='addInventory__back__btn'>    
+                <NavLink onClick={() => { navigate(-1); }} className='addInventory__back__btn'>    
                     <img src={back} alt="back icon" />
                 </NavLink>
                 <h1 className='addInventory__item'>Add New Inventory Item</h1>
