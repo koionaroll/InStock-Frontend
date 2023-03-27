@@ -70,7 +70,7 @@ function InventoryItemDetails({ apiUrl }) {
             >
               <img src={back} alt="back icon" />
             </NavLink>
-            <h1 className="inventory__item3">{data.item_name}</h1>
+            <h1>{data.item_name}</h1>
           </div>
           <NavLink to="/inventory/edit/:itemId" className="inventory__edit__btn">
             <Edit className="inventory__edit" />
