@@ -1,0 +1,92 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  max-width: unset;
+  max-height: unset;
+  padding: 3.75rem 1rem 1rem 1rem;
+  border: none;
+  @include tablet {
+    height: fit-content;
+    width: 87.5vw;
+    padding: 1rem 1rem 2.5rem 4rem;
+    margin: 11.563rem 3rem 3rem;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 0.938rem;
+    line-height: 1.625;
+    padding-top: 1rem;
+    @include tablet {
+      width: 90%;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 23.813rem;
+    @include tablet {
+      gap: 0rem;
+    }
+  }
+}
+
+.close-button {
+  width: 10.188rem;
+  height: 2.25rem;
+  border-radius: 1.25rem;
+  border: 0.063rem solid $secondary-second;
+  background-color: $primary-third;
+  color: $secondary-first;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  @include tablet {
+    width: 14%;
+  }
+  @include desktop {
+    width: 7%;
+  }
+}
+
+.delete-button {
+  width: 10.188rem;
+  height: 2.25rem;
+  background-color: $supporting-second;
+  border-radius: 1.25rem;
+  color: $primary-third;
+  border: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  @include tablet {
+    width: 14%;
+  }
+
+  @include desktop {
+    width: 7%;
+  }
+}
+
+.modal__button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+  @include tablet {
+    margin-top: 2rem;
+    justify-content: flex-end;
+    width: 90%;
+    gap: 1rem;
+  }
+}

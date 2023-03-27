@@ -64,6 +64,7 @@ const WarehouseList = () => {
               contactName={warehouse.contact_name}
               contactPhone={warehouse.contact_phone}
               contactEmail={warehouse.contact_email}
+              getWarehouses={getWarehouses}
             />
           );
         })}
