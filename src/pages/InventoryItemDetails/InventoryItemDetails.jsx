@@ -7,13 +7,12 @@ import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import { useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 
-function InventoryItemDetails() {
+function InventoryItemDetails({ apiUrl }) {
   const [data, setData] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
   const warehouseInfo = location.state;
   const { itemId } = useParams();
-  const apiUrl = "http://localhost:5050";
 
   const [inStock, setStock] = useState(false);
   useEffect(() => {
@@ -46,7 +45,9 @@ function InventoryItemDetails() {
         <div className="inventory__header">
           <div className="inventory__title-item">
             <NavLink
-              onClick={() => { navigate(-1); }}
+              onClick={() => {
+                navigate(-1);
+              }}
               className="inventory__back__btn"
             >
               <img src={back} alt="back icon" />

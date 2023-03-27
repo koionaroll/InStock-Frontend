@@ -12,20 +12,50 @@ import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 
 function App() {
+  //Global variable to store the API URL
+  const apiUrl = "http://localhost:5050";
+
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<WarehouseList />} />
-        <Route path="/warehouse/edit/:warehouseId" element={<EditWarehouse/>}/>
-        <Route path="/inventories" element={<InventoryList />} />
-        <Route path="/:warehouseId" element={<WarehouseDetails />} />
-        <Route path="/inventory/:itemId" element={<InventoryItemDetails />} />
-        <Route path="/inventory/add/" element={<AddInventoryItem />} />
-        <Route path="/warehouse/add/" element={<AddWarehouse />} />
-        <Route path="/inventory/edit/" element={<EditInventoryItem />} />
-        <Route path="/inventory/edit/:itemId" element={<EditInventoryItem />} />
-        <Route path="/warehouse/edit/" element={<EditWarehouse />} />
+        <Route path="/" element={<WarehouseList apiUrl={apiUrl} />} />
+        <Route
+          path="/warehouse/edit/:warehouseId"
+          element={<EditWarehouse apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/inventories"
+          element={<InventoryList apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/:warehouseId"
+          element={<WarehouseDetails apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/inventory/:itemId"
+          element={<InventoryItemDetails apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/inventory/add/"
+          element={<AddInventoryItem apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/warehouse/add/"
+          element={<AddWarehouse apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/inventory/edit/"
+          element={<EditInventoryItem apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/inventory/edit/:itemId"
+          element={<EditInventoryItem apiUrl={apiUrl} />}
+        />
+        <Route
+          path="/warehouse/edit/"
+          element={<EditWarehouse apiUrl={apiUrl} />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>

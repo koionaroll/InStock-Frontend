@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const EditWarehouse = () => {
+const EditWarehouse = ({ apiUrl }) => {
   // get the warehosue Id from the url
   const { warehouseId } = useParams();
   const [warehouse, setWarehouse] = useState({});
@@ -17,7 +17,7 @@ const EditWarehouse = () => {
   // get the warehouse using axios
   const getWarehouse = () => {
     console.log("here");
-    const url = `http://localhost:5050/warehouses/${warehouseId}`;
+    const url = `${apiUrl}/warehouses/${warehouseId}`;
     axios
       .get(url)
       .then((response) => {

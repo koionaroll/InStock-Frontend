@@ -8,11 +8,9 @@ import sort from "../../assets/Icons/sort-24px.svg";
 
 import "./InventoryList.scss";
 
-const InventoryList = () => {
+const InventoryList = ({ apiUrl }) => {
   //We set our data state to an empty array
   const [data, setData] = useState([]);
-
-  const apiUrl = "http://localhost:5050";
 
   const getInventory = () => {
     axios
@@ -67,25 +65,24 @@ const InventoryList = () => {
           </div>
         </div>
         <div className="inventory-list--align">
-
-        {data.map((inventory) => {
-          // console.log(getWarehouse(inventory.warehouse_id));
-          return (
-            <InventoryItem
-            apiUrl={apiUrl}
-            warehouseId={inventory.warehouse_id}
-            key={inventory.id}
-            id={inventory.id}
-            itemName={inventory.item_name}
-            category={inventory.category}
-            status={inventory.status}
-            quantity={inventory.quantity}
-            />
+          {data.map((inventory) => {
+            // console.log(getWarehouse(inventory.warehouse_id));
+            return (
+              <InventoryItem
+                apiUrl={apiUrl}
+                warehouseId={inventory.warehouse_id}
+                key={inventory.id}
+                id={inventory.id}
+                itemName={inventory.item_name}
+                category={inventory.category}
+                status={inventory.status}
+                quantity={inventory.quantity}
+              />
             );
           })}
         </div>
-          </div>
       </div>
+    </div>
   ) : (
     ""
   );
