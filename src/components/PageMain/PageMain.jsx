@@ -24,7 +24,7 @@ const PageMain = ({ pageName }) => {
           <Link
             className="main__section-button"
             to={`${
-              pageName === "warehouse" ? "/warehouse/add/" : "/inventory/add/"
+              pageName === "Warehouse" ? "/warehouse/add" : "/inventory/add"
             }`}
           >
             + Add New {`${pageName === "Warehouse" ? "Warehouse" : "Item"}`}
