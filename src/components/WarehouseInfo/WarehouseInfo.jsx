@@ -26,7 +26,7 @@ const WarehouseInfo = ({
               <Link className="warehouse__link" to={id}>
                 <p className="warehouse__info">{warehouseName}</p>
               </Link>
-              <Link className="warehouse__link" to={`/warehouses${id}`}>
+              <Link className="warehouse__link" to={`${id}`}>
                 <img className="warehouse__info" src={arrowBack} />
               </Link>
             </div>

@@ -42,7 +42,7 @@ function InventoryItemDetails() {
 
   return (
     <main>
-      <section className="inventory">
+      <section className="inventory1">
         <div className="inventory__header">
           <div className="inventory__title-item">
             <NavLink

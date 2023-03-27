@@ -2,9 +2,26 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
+.inventory1{
+  margin: 0 1rem;
+  @include tablet{
+      margin: 0 2rem;
+  }
+  @include desktop{
+      margin: 0 3.9375rem;
+  }
+  background-color: white;
+  position: relative;
+  top: -4rem;
+  border-radius: 0.25rem;
+  @include tablet{
+      top: -5.75rem;
+  }
+
+}
+
 .inventory {
   margin: 0;
-  padding: 0;
   border-radius: 0rem;
 
   &-list {
