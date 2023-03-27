@@ -12,12 +12,19 @@ function Header () {
             </NavLink>
             <nav className='nav'>
                 <div className='nav__links'>
-                    <NavLink to='/' className='nav__link nav__link--active'>
-                        <p>Warehouses</p>
-                    </NavLink>
-                    <NavLink to='/' className='nav__link'>
-                        <p>Inventory</p>
-                    </NavLink>
+                <NavLink to="/"
+                    className={({ isActive }) =>
+                    isActive ? "nav__link nav__link--active" : "nav__link"
+                    }>
+                    <p>Warehouses</p>
+                        </NavLink>
+                <NavLink
+                    to="/inventories"
+                    className={({ isActive }) =>
+                    isActive ? "nav__link nav__link--active" : "nav__link"
+                    }>
+                    <p>Inventory</p>
+                </NavLink>
                 </div>
             </nav>
         </header>
