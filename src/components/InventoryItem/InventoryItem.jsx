@@ -94,7 +94,7 @@ const InventoryItem = ({
             <li className="inventory__item">
               <Link
                 className="inventory__link--modifier"
-                to={`/edit/${id}`}
+                to={`/inventory/edit/${id}`}
               >
                 <Edit className="inventory__edit-button" />
               </Link>

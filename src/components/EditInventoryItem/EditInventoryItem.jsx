@@ -1,19 +1,19 @@
 import React from "react";
 import "../EditInventoryItem/EditInventoryItem.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import back from '../../assets/Icons/arrow_back-24px.svg';
 
 
 
 function EditInventoryItem() {
+    const navigate = useNavigate()
   return (
     <>
     <main>
-        <section className='editInventory'>
-                
+        <section className='editInventory'>     
             <div className='editInventory__header'>                    
-                <NavLink to="/" className='editInventory__back__btn'>    
+                <NavLink onClick={() => { navigate(-1); }} className='editInventory__back__btn'>    
                     <img src={back} alt="back icon" />
                 </NavLink>
                 <h1 className='editInventory__item'>Edit Inventory Item</h1>
@@ -70,10 +70,10 @@ function EditInventoryItem() {
                 </div>
             </div>
             <div className="editInventory__buttons">
-                    <NavLink to="/" className="editInventory__cancel__btn">
+                    <NavLink  onClick={() => { navigate(-1); }}  className="editInventory__cancel__btn">
                         <p>Cancel</p>
                     </NavLink>
-                    <NavLink to="/" className="editInventory__save__btn">
+                    <NavLink  onClick={() => { navigate(-1); }}  className="editInventory__save__btn">
                         <p>Save</p>
                     </NavLink>
             </div>

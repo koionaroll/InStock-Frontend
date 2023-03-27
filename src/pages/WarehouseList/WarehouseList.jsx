@@ -46,11 +46,11 @@ const WarehouseList = () => {
             <img className="warehouse__image" src={sort} alt="" />
           </div>
           <div className="warehouse__wrapper">
-            <p className="warehouse__title--big-screens">address</p>
+            <p className="warehouse__title--big-screens">contact name</p>
             <img className="warehouse__image" src={sort} />
           </div>
           <div className="warehouse__wrapper">
-            <p className="warehouse__title--big-screens">contact name</p>
+            <p className="warehouse__title--big-screens">address</p>
             <img className="warehouse__image" src={sort} alt="" />
           </div>
           <div className="warehouse__wrapper">
