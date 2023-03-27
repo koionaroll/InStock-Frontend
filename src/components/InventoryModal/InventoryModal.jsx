@@ -1,11 +1,11 @@
-import "./WarehouseModal.scss";
+import "./InventoryModal.scss";
 import { useRef } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import x from "../../assets/Icons/close-24px.svg"
 
-function WarehouseModal({openModal, setOpenModal, id, warehouseName, getWarehouses}) {
+function InventoryModal({openModal, setOpenModal, id, itemName, getWarehouse}) {
   const dialogRef = useRef();
   const navigate = useNavigate();
 
@@ -17,13 +17,13 @@ function WarehouseModal({openModal, setOpenModal, id, warehouseName, getWarehous
     }
   }, [openModal]);
 
-  const deleteWarehouse = ()=>{
+  const deleteInventory = ()=>{
     const apiUrl = "http://localhost:5050";
     
   axios
-      .delete(apiUrl + `/warehouses/${id}`)
+      .delete(apiUrl + `/inventories/${id}`)
       .then((response) => {
-        getWarehouses();
+        getWarehouse();
         setOpenModal(false)
 
       })
@@ -39,19 +39,19 @@ function WarehouseModal({openModal, setOpenModal, id, warehouseName, getWarehous
         <div className="modal__wrapper">
           <div className="modal__message-container">
             <img className="x-icon" src={x} alt="x-icon" onClick={()=>setOpenModal(false)} />
-            <h1 className="modal__title">Delete {warehouseName} Warehouse</h1>
+            <h1 className="modal__title">Delete {itemName} inventory item</h1>
             <p className="modal__text">
-              Please confirm that you would like to delete {warehouseName} from the
+              Please confirm that you would like to delete {itemName} from the
               list of Warehouses. You won't be able to undo this action.
             </p>
           </div>
           <div className="modal__button-container">
             <button className="close-button" onClick={()=>setOpenModal(false)} >Cancel</button>
-            <button className="delete-button" onClick={()=>deleteWarehouse()} >Delete</button>
+            <button className="delete-button" onClick={()=>deleteInventory()} >Delete</button>
           </div>
         </div>
       </dialog>
     </>
   );
 }
-export default WarehouseModal;
+export default InventoryModal;
