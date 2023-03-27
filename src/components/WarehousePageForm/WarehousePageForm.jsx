@@ -32,17 +32,8 @@ const WarehousePageForm = ({ formType, placeHolderInfo }) => {
   );
   const [contactEmail, setContactEmail] = useState("");
 
-  // useEffect(() => {
-  //     setWarehouseName(placeHolderInfo.warehouse_name);
-  //     console.log("wew aer here hnow ", warehouseName)
-
-  // }, [])
-  // useEffect(() => {
-  //     getWarehouse(warehouseId);
-  // }, [])
 
   const getWarehouse = () => {
-    console.log("here");
     const url = `http://localhost:5050/warehouses/${warehouseId}`;
     axios
       .get(url)
@@ -89,8 +80,19 @@ const WarehousePageForm = ({ formType, placeHolderInfo }) => {
       });
   };
 
-  const editWarehouse = () => {
-    console.log("edit form");
+  const editWarehouse = (updatedWarehouse) => {
+    console.log("edit form", formType);
+    console.log("Id is ", warehouseId)
+    const url = `http://localhost:5050/warehouses/${warehouseId}`;
+    console.log("The URL is: ", url);
+    axios
+    .put(url, updatedWarehouse)
+    .then((data) => {
+
+    })
+    .catch(err => {
+        console.log(`Error in updating warehouse ${err}`);
+    })
   };
 
   useEffect(() => {
@@ -177,7 +179,7 @@ const WarehousePageForm = ({ formType, placeHolderInfo }) => {
       addWarehouse(warehouse);
     }
     if (formType === "Edit") {
-      editWarehouse();
+      editWarehouse(warehouse);
     }
 
     alert("form submitted");
