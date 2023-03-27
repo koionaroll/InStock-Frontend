@@ -50,7 +50,6 @@ function InventoryItemDetails({ apiUrl }) {
   useEffect(() => {
     if (warehouseName){
       getName();
-
     }
     if (itemId){
       getData()};
@@ -71,9 +70,9 @@ function InventoryItemDetails({ apiUrl }) {
             >
               <img src={back} alt="back icon" />
             </NavLink>
-            <h1 className="inventory__item">{data.item_name}</h1>
+            <h1 className="inventory__item3">{data.item_name}</h1>
           </div>
-          <NavLink to="/" className="inventory__edit__btn">
+          <NavLink to="/inventory/edit/:itemId" className="inventory__edit__btn">
             <Edit className="inventory__edit" />
             <p className="inventory__edit__btn--text">Edit</p>
           </NavLink>
