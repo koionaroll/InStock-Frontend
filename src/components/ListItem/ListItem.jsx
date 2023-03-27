@@ -5,11 +5,14 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg";
 import "./ListItem.scss";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom"
+import InventoryModal from "../InventoryModal/InventoryModal";
 
 
 function ListItem({ element, warehouseInfo }) {
   const [inStock, setStock] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
+    console.log(element)
     if (element.quantity === 0) {
       setStock(false);
     } else {
@@ -17,6 +20,8 @@ function ListItem({ element, warehouseInfo }) {
     }
   }, [element.quantity]);
   return (
+    <>
+    <InventoryModal itemName={element.item_name} setOpenModal={setOpenModal}  openModal={openModal} />
     <div className="details--container">
       <div className="details--label--tablet">
         <Link to={`/inventory/${element.id}`} state={warehouseInfo} className="details--info-item"> 
@@ -48,13 +53,14 @@ function ListItem({ element, warehouseInfo }) {
         <p className="details--info">{element.quantity} </p>
       </div>
       <div className=" button--container">
-        <button className="button--delete">
+        <button className="button--delete" onClick={()=>setOpenModal(true)}>
           <img src={trash} alt="" />
         </button>
         <Edit className="button--edit-1" />
       </div>
       <Edit className="button--edit-2" />
     </div>
+    </>
   );
 }
 
