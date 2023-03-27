@@ -10,6 +10,8 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 function InventoryItemDetails({ apiUrl }) {
   const [data, setData] = useState({});
   const location = useLocation();
+  const warehouseName = location.state;
+  const [name, setName] = useState({});
   const navigate = useNavigate();
   const warehouseInfo = location.state;
   const { itemId } = useParams();
@@ -33,11 +35,28 @@ function InventoryItemDetails({ apiUrl }) {
         console.error("Error: ", error);
       });
   };
+
+  const getName = () => {
+    axios
+      .get(apiUrl + "/warehouses/" + warehouseName)
+      .then((res) => {
+        setName(res.data);
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
+  };
+
   useEffect(() => {
-    getData();
+    if (warehouseName){
+      getName();
+
+    }
+    if (itemId){
+      getData()};
   }, []);
 
-  document.title = `${warehouseInfo?.warehouse_name}: ${data.item_name}`;
+  document.title = `${data.item_name}`;
 
   return (
     <main>
@@ -93,7 +112,9 @@ function InventoryItemDetails({ apiUrl }) {
             <div className="inventory__warehouse">
               <p className="inventory__sub__title">warehouse:</p>
               <p className="inventory__content">
-                {warehouseInfo?.warehouse_name}
+                {warehouseInfo?.warehouse_name
+                  ? warehouseInfo.warehouse_name
+                  : name.warehouse_name}
               </p>
             </div>
           </div>
