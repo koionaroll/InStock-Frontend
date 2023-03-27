@@ -3,6 +3,7 @@
 @use "../../styles/partials/fonts" as *;
 
 .inventory {
+  padding: 0;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   border-top: 0.063rem solid $secondary-second;
@@ -118,6 +119,7 @@
     border-radius: 1.25rem;
     padding: 0.25rem 0.5rem;
     margin-top: 1rem;
+    width: fit-content;
     @include tablet {
       margin: 0;
     }

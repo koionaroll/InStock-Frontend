@@ -3,6 +3,16 @@
 
 
 .inventory {
+
+    &__title-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: $primary-first;
+        font-size: 1.25rem;
+        gap: 1rem;
+    }
+
     background-color: $primary-third;
     margin: 0px 16px;
     position: relative;
@@ -92,9 +102,11 @@
         }
     }
 
-    &__status,
+    &__status-1,
     &__quantity {
-        width: 50%;
+        padding: 0;
+        margin: 0 1.5rem 1.5rem 0;
+        width: 30%;
     }
 
     &__sub__title {
@@ -157,6 +169,7 @@
       background: rgba(201, 69, 21, 0.07);
     }
   }
+
 
 
 

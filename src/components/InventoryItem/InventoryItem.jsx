@@ -50,10 +50,10 @@ const InventoryItem = ({
           <div className="inventory__container">
             <p className="inventory__title">inventory item</p>
             <div className="inventory__second-container">
-              <Link className="inventory__link" to={`/${id}`}>
+              <Link className="inventory__link" to={`/inventory/${id}`}>
                 <p className="inventory__info">{itemName}</p>
               </Link>
-              <Link className="inventory__link" to={`/${id}`}>
+              <Link className="inventory__link" to={`/inventory/${id}`}>
                 <img className="inventory__info" src={arrowBack} />
               </Link>
             </div>
@@ -94,7 +94,7 @@ const InventoryItem = ({
             <li className="inventory__item">
               <Link
                 className="inventory__link--modifier"
-                to={`inventorys/edit/${id}`}
+                to={`/edit/${id}`}
               >
                 <Edit className="inventory__edit-button" />
               </Link>

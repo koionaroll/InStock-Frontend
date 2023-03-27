@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import WarehouseInfo from "../../components/WarehouseInfo/WarehouseInfo";
+import PageMain from "../../components/PageMain/PageMain";
 
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./WarehouseList.scss";
@@ -28,8 +29,16 @@ const WarehouseList = () => {
     getWarehouses();
     document.title = "Warehouses Page";
   }, []);
+
+  useEffect(() => {
+    getWarehouses();
+    console.log("hala madrid");
+    document.title = "Warehouses Page";
+  }, [data.length]);
+
   return data ? (
     <div className="warehouse-list--layout">
+      <PageMain pageName={"Warehouse"}></PageMain>
       <div className="warehouse-list">
         <div className="warehouse__info--big-screens">
           <div className="warehouse__wrapper">

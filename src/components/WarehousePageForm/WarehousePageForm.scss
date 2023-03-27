@@ -3,12 +3,7 @@
 @use '../../styles/partials/fonts' as *;
 
 .form {
-
-    // display: flex;
-    // flex-direction: column;
     background-color: $background-second;
-
-    padding: 1rem 1.5rem;
 
 
 
@@ -36,7 +31,6 @@
         gap: 1rem;
         border-top: solid 1px #BDC5D5;
         background-color: white;
-        margin-top: 2rem;
         padding-top: 1rem;
 
 
@@ -53,7 +47,6 @@
         gap: 1rem;
         border-top: solid 1px #BDC5D5;
         background-color: white;
-        margin-top: 2rem;
         padding-top: 1rem;
 
 
@@ -119,10 +112,12 @@
 
 
     &__buttons {
-        margin-top: 1rem;
+padding: 1rem 0;        
+background-color: white;
+
         display: flex;
         justify-content: space-around;
-
+        gap: 1rem;
         @include tablet {
             justify-content: flex-end;
             gap: 1rem;
@@ -143,10 +138,31 @@
         font-size: 1rem;
 
         @include tablet {
+
             width: 10rem;
-            
         }
     }
+
+    &__edit {
+        background-color: $primary-second;
+        color: white;
+        border-radius: 1.25rem;
+        width: 100%;
+        border: none;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+
+        @include tablet {
+
+            width: 5rem;
+        }
+    }
+
+
 
     &__cancel {
         background-color: $primary-third;
