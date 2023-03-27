@@ -30,6 +30,7 @@ const InventoryList = () => {
   }, []);
   return data ? (
     <div className="inventory-list--layout">
+      <PageMain></PageMain>
       <div className="inventory-list">
         <div className="inventory__info--big-screens">
           <div className="inventory__wrapper">
