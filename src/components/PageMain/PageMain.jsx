@@ -21,7 +21,12 @@ const PageMain = ({ pageName }) => {
         </div>
         <div className="main__section-button-container">
           {/* <button className="main__section-button"> + Add New {pageName} </button> */}
-          <Link className="main__section-button" to="/warehouse/add">
+          <Link
+            className="main__section-button"
+            to={`${
+              pageName === "warehouse" ? "/warehouse/add/" : "/inventory/add/"
+            }`}
+          >
             + Add New {`${pageName === "Warehouse" ? "Warehouse" : "Item"}`}
           </Link>
         </div>
