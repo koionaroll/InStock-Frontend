@@ -30,7 +30,9 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
   const [contactPhone, setContactPhone] = useState(
     formType === "Edit" ? placeHolderInfo.contact_phone : ""
   );
-  const [contactEmail, setContactEmail] = useState("");
+  const [contactEmail, setContactEmail] = useState(
+    formType === "Edit" ? placeHolderInfo.contact_email : ""
+  );
 
   const getWarehouse = () => {
     const url = `${apiUrl}/warehouses/${warehouseId}`;
@@ -94,9 +96,12 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
 
   useEffect(() => {
     console.log("here123");
+    // if (warehouseId && formType === "Edit") {
+    //   getWarehouse(warehouseId);
+    // }
     if (warehouseId && formType === "Edit") {
-      getWarehouse(warehouseId);
-    }
+        getWarehouse(warehouseId);
+      }
     // console.log(warehouse.warehouse_name)
     // console.log(warehouse)
     // setPlaceHolderInfo(warehouse)
