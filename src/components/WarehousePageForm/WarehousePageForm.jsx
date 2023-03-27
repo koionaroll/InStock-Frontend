@@ -4,12 +4,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import errorIcon from "../../assets/Icons/error-24px.svg";
-import EditWarehouse from "../../pages/EditWarehouse/EditWarehouse";
+// import EditWarehouse from "../../pages/EditWarehouse/EditWarehouse";
 
 const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
   const { warehouseId } = useParams();
   const navigate = useNavigate();
-  console.log("Type is: ", placeHolderInfo, formType);
 
   const [warehouseName, setWarehouseName] = useState("");
   const [address, setAddress] = useState(
@@ -39,9 +38,6 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
     axios
       .get(url)
       .then((response) => {
-        // console.log("here")
-        console.log(response.data.address);
-        // setWarehouse(response.data);
         setWarehouseName(response.data.warehouse_name);
         setAddress(response.data.address);
         setContactPhone(response.data.contact_phone);
@@ -51,16 +47,12 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
         setContactName(response.data.contact_name);
         setContactPosition(response.data.contact_position);
         // return response.data;
-        console.log("my name ", warehouseName);
       })
       .catch((err) => {
         console.log(`Could not find a warehouse ${err}`);
       });
   };
 
-  // setWarehouseName(placeHolderInfo.warehouse_name);
-  console.log(formType === "Edit" ? placeHolderInfo.contact_email : "");
-  // const [textFieldError, setTextFieldError] = useState("--error");
 
   const [warehouseNameError, setWarehouseNameError] = useState(false);
   const [addressError, setaddressError] = useState(false);
@@ -82,10 +74,8 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
   };
 
   const editWarehouse = (updatedWarehouse) => {
-    console.log("edit form", formType);
-    console.log("Id is ", warehouseId);
+
     const url = `${apiUrl}/warehouses/${warehouseId}`;
-    console.log("The URL is: ", url);
     axios
       .put(url, updatedWarehouse)
       .then((data) => {})
@@ -95,21 +85,15 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
   };
 
   useEffect(() => {
-    console.log("here123");
-    // if (warehouseId && formType === "Edit") {
-    //   getWarehouse(warehouseId);
-    // }
+
     if (warehouseId && formType === "Edit") {
         getWarehouse(warehouseId);
       }
-    // console.log(warehouse.warehouse_name)
-    // console.log(warehouse)
-    // setPlaceHolderInfo(warehouse)
+
     document.title = "Edit Warehouse";
   }, []);
 
   const handleFormSubmit = (event) => {
-    // const {name, className, value} = event.target;
     event.preventDefault();
 
     const warehouse = {
@@ -123,20 +107,16 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
       contact_email: contactEmail,
     };
 
-    console.log("here1234", warehouse.warehouse_name);
     if (warehouseName.length <= 0) {
       setWarehouseNameError(true);
     }
 
     if (address.length <= 0) {
-      console.log("here555");
       setaddressError(true);
     }
     if (city.length <= 0) {
       setCityError(true);
     }
-
-    // handleInputChange(event)
 
     if (country.length <= 0) {
       setCountryError(true);
@@ -151,7 +131,6 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
       setPhoneError(true);
     }
     if (contactEmail.length <= 0) {
-      console.log("email error should be true");
       setEmailError(true);
     }
 
@@ -226,8 +205,7 @@ const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
       value === "" ? setEmailError(true) : setEmailError(false);
     }
   };
-  console.log(warehouseName);
-  console.log("Warehouse name ", warehouseName);
+
   return (
     <>
       <section className="form">
