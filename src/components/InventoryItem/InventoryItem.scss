@@ -118,6 +118,7 @@
     border-radius: 1.25rem;
     padding: 0.25rem 0.5rem;
     margin-top: 1rem;
+    width: fit-content;
     @include tablet {
       margin: 0;
     }

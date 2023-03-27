@@ -5,11 +5,12 @@ import axios from "axios";
 import back from "../../assets/Icons/arrow_back-24px.svg";
 import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 function InventoryItemDetails() {
   const [data, setData] = useState({});
   const location = useLocation();
+  const navigate = useNavigate();
   const warehouseInfo = location.state;
   const { itemId } = useParams();
   const apiUrl = "http://localhost:5050";
@@ -37,7 +38,7 @@ function InventoryItemDetails() {
     getData();
   }, []);
 
-  document.title = `${warehouseInfo.warehouse_name}: ${data.item_name}`;
+  document.title = `${warehouseInfo?.warehouse_name}: ${data.item_name}`;
 
   return (
     <main>
@@ -45,7 +46,7 @@ function InventoryItemDetails() {
         <div className="inventory__header">
           <div className="inventory__title">
             <NavLink
-              to={`/${data.warehouse_id}`}
+              onClick={() => { navigate(-1); }}
               className="inventory__back__btn"
             >
               <img src={back} alt="back icon" />
@@ -91,7 +92,7 @@ function InventoryItemDetails() {
             <div className="inventory__warehouse">
               <p className="inventory__sub__title">warehouse:</p>
               <p className="inventory__content">
-                {warehouseInfo.warehouse_name}
+                {warehouseInfo?.warehouse_name}
               </p>
             </div>
           </div>

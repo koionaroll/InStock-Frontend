@@ -3,6 +3,11 @@
 
 
 .inventory {
+
+    &__item{
+        color: green;
+    }
+    
     background-color: $primary-third;
     margin: 0px 16px;
     position: relative;
@@ -157,6 +162,7 @@
       background: rgba(201, 69, 21, 0.07);
     }
   }
+
 
 
 

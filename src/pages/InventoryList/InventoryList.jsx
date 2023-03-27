@@ -66,23 +66,26 @@ const InventoryList = () => {
             </p>
           </div>
         </div>
+        <div className="inventory-list--align">
+
         {data.map((inventory) => {
           // console.log(getWarehouse(inventory.warehouse_id));
           return (
             <InventoryItem
-              apiUrl={apiUrl}
-              warehouseId={inventory.warehouse_id}
-              key={inventory.id}
-              id={inventory.id}
-              itemName={inventory.item_name}
-              category={inventory.category}
-              status={inventory.status}
-              quantity={inventory.quantity}
+            apiUrl={apiUrl}
+            warehouseId={inventory.warehouse_id}
+            key={inventory.id}
+            id={inventory.id}
+            itemName={inventory.item_name}
+            category={inventory.category}
+            status={inventory.status}
+            quantity={inventory.quantity}
             />
-          );
-        })}
+            );
+          })}
+        </div>
+          </div>
       </div>
-    </div>
   ) : (
     ""
   );
