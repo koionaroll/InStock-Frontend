@@ -52,10 +52,10 @@ const InventoryItem = ({
           <div className="inventory__container">
             <p className="inventory__title">inventory item</p>
             <div className="inventory__second-container">
-              <Link className="inventory__link" to={`/inventory/${id}`}>
+              <Link state={warehouseId} className="inventory__link" to={`/inventory/${id}`}>
                 <p className="inventory__info">{itemName}</p>
               </Link>
-              <Link className="inventory__link" to={`/inventory/${id}`}>
+              <Link state={warehouseId} className="inventory__link" to={`/inventory/${id}`}>
                 <img className="inventory__info" src={arrowBack} />
               </Link>
             </div>

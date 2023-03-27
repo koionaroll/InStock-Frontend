@@ -2,7 +2,7 @@ import "../AddWarehouse/AddWarehouse.scss";
 import WarehousePageForm from "../../components/WarehousePageForm/WarehousePageForm";
 import PageMainAction from "../../components/PageMainAction/PageMainAction";
 
-const AddWarehouse = () => {
+const AddWarehouse = ({ apiUrl }) => {
   document.title = "Add Warehouse";
 
   const placeHolderInfo = {
@@ -22,6 +22,7 @@ const AddWarehouse = () => {
         <div className="layout1">
           <PageMainAction title={"Warehouse"} type={"Add"} />
           <WarehousePageForm
+            apiUrl={apiUrl}
             formType={"Add"}
             placeHolderInfo={placeHolderInfo}
           />

@@ -7,11 +7,9 @@ import PageMain from "../../components/PageMain/PageMain";
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./WarehouseList.scss";
 
-const WarehouseList = () => {
+const WarehouseList = ({ apiUrl }) => {
   //We set our data state to an empty array
   const [data, setData] = useState([]);
-
-  const apiUrl = "http://localhost:5050";
 
   const getWarehouses = () => {
     axios

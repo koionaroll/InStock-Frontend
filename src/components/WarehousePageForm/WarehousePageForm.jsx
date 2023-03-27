@@ -6,7 +6,7 @@ import axios from "axios";
 import errorIcon from "../../assets/Icons/error-24px.svg";
 import EditWarehouse from "../../pages/EditWarehouse/EditWarehouse";
 
-const WarehousePageForm = ({ formType, placeHolderInfo }) => {
+const WarehousePageForm = ({ apiUrl, formType, placeHolderInfo }) => {
   const { warehouseId } = useParams();
   const navigate = useNavigate();
   console.log("Type is: ", placeHolderInfo, formType);
@@ -32,9 +32,8 @@ const WarehousePageForm = ({ formType, placeHolderInfo }) => {
   );
   const [contactEmail, setContactEmail] = useState("");
 
-
   const getWarehouse = () => {
-    const url = `http://localhost:5050/warehouses/${warehouseId}`;
+    const url = `${apiUrl}/warehouses/${warehouseId}`;
     axios
       .get(url)
       .then((response) => {
@@ -71,7 +70,7 @@ const WarehousePageForm = ({ formType, placeHolderInfo }) => {
   const [emailError, setEmailError] = useState(false);
 
   const addWarehouse = (newWarehouse) => {
-    const url = `http://localhost:5050/warehouses`;
+    const url = `${apiUrl}/warehouses`;
     axios
       .post(url, newWarehouse)
       .then((response) => {})
@@ -82,17 +81,15 @@ const WarehousePageForm = ({ formType, placeHolderInfo }) => {
 
   const editWarehouse = (updatedWarehouse) => {
     console.log("edit form", formType);
-    console.log("Id is ", warehouseId)
-    const url = `http://localhost:5050/warehouses/${warehouseId}`;
+    console.log("Id is ", warehouseId);
+    const url = `${apiUrl}/warehouses/${warehouseId}`;
     console.log("The URL is: ", url);
     axios
-    .put(url, updatedWarehouse)
-    .then((data) => {
-
-    })
-    .catch(err => {
+      .put(url, updatedWarehouse)
+      .then((data) => {})
+      .catch((err) => {
         console.log(`Error in updating warehouse ${err}`);
-    })
+      });
   };
 
   useEffect(() => {
