@@ -19,7 +19,9 @@ function ListDetailsHeader({ warehouseInfo }) {
             <h1 className="header--location">{warehouseInfo.warehouse_name}</h1>
           </div>
           <div className="header--edit">
+          <Link to = "/warehouse/edit">
             <Edit className="header--edit--color" />
+            </Link>
             <p className="header--edit--label">Edit</p>
           </div>
         </div>

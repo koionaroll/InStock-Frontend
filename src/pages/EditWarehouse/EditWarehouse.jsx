@@ -49,8 +49,13 @@ const EditWarehouse = () => {
 
         warehouse ?
         <>
+        <div className="layout2">
+        <div className="layout1">
+        
             <PageMainAction title={"Warehouse"} type={"Edit"} />
             <WarehousePageForm  formType={"Edit"} placeHolderInfo={warehouse}/>
+        </div>
+        </div>
         </>
         : ""
 
