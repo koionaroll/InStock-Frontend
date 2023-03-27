@@ -18,8 +18,13 @@ const AddWarehouse = () => {
 
     return ( 
         <>
+<div className="layout2">
+        <div className="layout1">
+
             <PageMainAction title={"Warehouse"} type={"Add"} />
             <WarehousePageForm formType={"Add"} placeHolderInfo={placeHolderInfo} />
+</div>
+        </div>
         </>
      );
 }

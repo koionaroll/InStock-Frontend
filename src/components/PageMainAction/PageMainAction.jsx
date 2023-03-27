@@ -25,7 +25,7 @@ const PageMainAction = ({title, type}) => {
     return (
         <>
             <section className="add-page__main">
-                <Link to="/warehouse">
+                <Link to="/">
                     <img src={leftArrow} className='add-page__main__back'/>
                 </Link>
               
