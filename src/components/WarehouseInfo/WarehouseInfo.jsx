@@ -61,7 +61,7 @@ const WarehouseInfo = ({
             <li className="warehouse__item">
               <Link
                 className="warehouse__link--modifier"
-                to={`warehouses/edit/${id}`}
+                to={`warehouse/edit/${id}`}
               >
                 <Edit className="warehouse__edit-button" />
               </Link>
