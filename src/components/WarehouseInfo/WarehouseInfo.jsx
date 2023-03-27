@@ -1,5 +1,7 @@
 import { Link, useParams } from "react-router-dom";
+import { useState } from "react"; 
 
+import WarehouseModal from "../WarehouseModal/WarehouseModal";
 import deleteButton from "../../assets/Icons/delete_outline-24px.svg";
 import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import arrowBack from "../../assets/Icons/chevron_right-24px.svg";
@@ -13,11 +15,14 @@ const WarehouseInfo = ({
   contactName,
   contactPhone,
   contactEmail,
+  getWarehouses
 }) => {
   const warehouseId = useParams();
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
+    <WarehouseModal setOpenModal={setOpenModal} id={id} warehouseName={warehouseName} openModal={openModal} getWarehouses={getWarehouses} />
       <div className="warehouse">
         <div className="warehouse__block">
           <div className="warehouse__container">
@@ -51,7 +56,7 @@ const WarehouseInfo = ({
             </div>
           </div>
           <ul className="warehouse__container">
-            <li className="warehouse__item">
+            <li className="warehouse__item" onClick={()=>setOpenModal(true)}>
               <img
                 className="warehouse__delete-button"
                 src={deleteButton}
