@@ -9,7 +9,7 @@ import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import EditInventoryItem from './components/EditInventoryItem/EditInventoryItem';
 import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem'
-
+import InventoryList from "./pages/InventoryList/InventoryList"
 
 
 function App() {
@@ -17,10 +17,12 @@ function App() {
     <BrowserRouter>
     <Header />
     <Routes>
-      <Route path="/" element={<WarehouseList/>}/>
+      <Route path="/" element={<WarehouseList />}/>
+      <Route path="/inventories" element={<InventoryList />}/>
       <Route path="/:warehouseId" element={<WarehouseDetails/>}/>
       <Route path="/inventory/:itemId" element={<InventoryItemDetails/>}/>
       <Route path="/warehouse/add/" element={<AddInventoryItem/>}/>
+      <Route path="/inventory/edit/" element={<EditInventoryItem/>}/>
     </Routes>
     <Footer />
 
