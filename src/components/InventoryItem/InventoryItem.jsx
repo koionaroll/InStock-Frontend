@@ -53,7 +53,7 @@ const InventoryItem = ({
               <Link className="inventory__link" to={`/inventory/${id}`}>
                 <p className="inventory__info">{itemName}</p>
               </Link>
-              <Link className="inventory__link" to={`inventory/${id}`}>
+              <Link className="inventory__link" to={`/inventory/${id}`}>
                 <img className="inventory__info" src={arrowBack} />
               </Link>
             </div>

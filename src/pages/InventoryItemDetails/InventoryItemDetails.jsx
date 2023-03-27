@@ -44,7 +44,7 @@ function InventoryItemDetails() {
     <main>
       <section className="inventory">
         <div className="inventory__header">
-          <div className="inventory__title">
+          <div className="inventory__title-item">
             <NavLink
               onClick={() => { navigate(-1); }}
               className="inventory__back__btn"
@@ -72,7 +72,7 @@ function InventoryItemDetails() {
           </div>
           <div className="inventory__column__2">
             <div className="inventory__status__quantity">
-              <div className="inventory__status">
+              <div className="inventory__status-1">
                 <p className="inventory__sub__title">status:</p>
                 <p
                   className={
