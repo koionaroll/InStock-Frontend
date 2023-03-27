@@ -33,7 +33,7 @@ const InventoryList = () => {
   useEffect(() => {
     getInventory();
     document.title = "Inventory Page";
-  }, data);
+  }, [data]);
 
   return data ? (
     <div className="inventory-list--layout">

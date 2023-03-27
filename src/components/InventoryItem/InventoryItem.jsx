@@ -8,6 +8,7 @@ import arrowBack from "../../assets/Icons/chevron_right-24px.svg";
 
 import "./InventoryItem.scss";
 import { useEffect, useState } from "react";
+import InventoryModal from "../InventoryModal/InventoryModal";
 const InventoryItem = ({
   apiUrl,
   warehouseId,
@@ -15,11 +16,11 @@ const InventoryItem = ({
   itemName,
   category,
   status,
-  quantity,
+  quantity
 }) => {
   const [inStock, setStock] = useState(false);
   const [warehouseName, setWarehouseName] = useState("");
-
+  const [openModal, setOpenModal] = useState(false);
   const getWarehouse = (warehouseId) => {
     axios
       .get(apiUrl + "/warehouses/" + warehouseId)
@@ -45,6 +46,7 @@ const InventoryItem = ({
   }, [quantity]);
   return (
     <>
+      <InventoryModal itemName={itemName} setOpenModal={setOpenModal} id={id} openModal={openModal} getWarehouse={getWarehouse}/>
       <div className="inventory">
         <div className="inventory__block">
           <div className="inventory__container">
@@ -84,7 +86,7 @@ const InventoryItem = ({
             <p className="inventory__info">{warehouseName}</p>
           </div>
           <ul className="inventory__container">
-            <li className="inventory__item">
+            <li className="inventory__item" onClick={()=>setOpenModal(true)}>
               <img
                 className="inventory__delete-button"
                 src={deleteButton}
