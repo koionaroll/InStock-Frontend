@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import InventoryItem from "../../components/InventoryItem/InventoryItem";
+
+import PageMain from "../../components/PageMain/PageMain";
 import sort from "../../assets/Icons/sort-24px.svg";
 
 import "./InventoryList.scss";
@@ -28,9 +30,14 @@ const InventoryList = () => {
     getInventory();
     document.title = "Inventory Page";
   }, []);
+  useEffect(() => {
+    getInventory();
+    document.title = "Inventory Page";
+  }, data);
+
   return data ? (
     <div className="inventory-list--layout">
-      <PageMain></PageMain>
+      <PageMain pageName={"Inventory"} />
       <div className="inventory-list">
         <div className="inventory__info--big-screens">
           <div className="inventory__wrapper">

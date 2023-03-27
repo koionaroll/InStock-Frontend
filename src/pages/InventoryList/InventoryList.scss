@@ -16,8 +16,10 @@
     }
     &--layout {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       position: relative;
+      background-color: white;
       top: -4rem;
       @include tablet {
         top: -5.75rem;
