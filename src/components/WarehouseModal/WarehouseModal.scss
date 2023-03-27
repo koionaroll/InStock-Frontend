@@ -7,20 +7,26 @@
   background-color: white;
   max-width: unset;
   max-height: unset;
-  padding: 3.75rem 1rem 1rem 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   border: none;
   @include tablet {
     height: fit-content;
     width: 87.5vw;
-    padding: 1rem 1rem 2.5rem 4rem;
+    padding: 0rem 1rem 2.5rem 4rem;
     margin: 11.563rem 3rem 3rem;
+    @include desktop{
+        width: 42rem;
+        margin: 11.56rem auto;
+    }
   }
   &__title {
     font-weight: 600;
     font-size: 1.75rem;
     line-height: 2.25rem;
+    margin-top: 3.7rem;
     @include tablet {
       font-size: 2rem;
+      margin-top: 2.5rem;
     }
   }
   &__text {
@@ -30,15 +36,19 @@
     padding-top: 1rem;
     @include tablet {
       width: 90%;
+      font-size: 1rem;
     }
   }
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 23.813rem;
+    gap: 22.813rem;
     @include tablet {
       gap: 0rem;
     }
+  }
+  &__message-container{
+    position: relative;
   }
 }
 
@@ -56,7 +66,7 @@
     width: 14%;
   }
   @include desktop {
-    width: 7%;
+    width: 13.52%;
   }
 }
 
@@ -75,18 +85,25 @@
   }
 
   @include desktop {
-    width: 7%;
+    width: 13.52%;
   }
 }
 
 .modal__button-container {
-  display: flex;
-  flex-direction: row;
-  gap: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.625rem;
   @include tablet {
     margin-top: 2rem;
     justify-content: flex-end;
     width: 90%;
     gap: 1rem;
   }
+}
+
+.x-icon{
+    position: absolute;
+    right: 0;
+    top: 1rem;
 }

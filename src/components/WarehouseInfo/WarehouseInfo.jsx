@@ -22,7 +22,7 @@ const WarehouseInfo = ({
 
   return (
     <>
-    <WarehouseModal setOpenModal={setOpenModal} id={id} openModal={openModal} getWarehouses={getWarehouses} />
+    <WarehouseModal setOpenModal={setOpenModal} id={id} warehouseName={warehouseName} openModal={openModal} getWarehouses={getWarehouses} />
       <div className="warehouse">
         <div className="warehouse__block">
           <div className="warehouse__container">

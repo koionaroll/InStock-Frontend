@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import x from "../../assets/Icons/close-24px.svg"
 
-function WarehouseModal({openModal, setOpenModal, id, getWarehouses}) {
+function WarehouseModal({openModal, setOpenModal, id, warehouseName, getWarehouses}) {
   const dialogRef = useRef();
   const navigate = useNavigate();
 
@@ -22,11 +22,10 @@ function WarehouseModal({openModal, setOpenModal, id, getWarehouses}) {
     const apiUrl = "http://localhost:5050";
     
   axios
-      .delete(apiUrl + `/warehouses/${id}/inventories`)
+      .delete(apiUrl + `/warehouses/${id}`)
       .then((response) => {
         getWarehouses();
         setOpenModal(false)
-
 
       })
       .catch((error) => {
@@ -41,9 +40,9 @@ function WarehouseModal({openModal, setOpenModal, id, getWarehouses}) {
         <div className="modal__wrapper">
           <div className="modal__message-container">
             <img className="x-icon" src={x} alt="x-icon" />
-            <h1 className="modal__title">Delete Washington Warehouse</h1>
+            <h1 className="modal__title">Delete {warehouseName} Warehouse</h1>
             <p className="modal__text">
-              Please confirm that you would like to delete prop . name from the
+              Please confirm that you would like to delete {warehouseName} from the
               list of Warehouses. You won't be able to undo this action.
             </p>
           </div>
