@@ -10,13 +10,12 @@
     &__container {
         display: flex;
         flex-direction: column;
-        // gap: 2rem;
         background-color: white;
 
 
         @include tablet {
             flex-direction: row;
-            padding: 1rem 0rem 1rem 0rem;
+            padding: 1rem
 
         }
     }
@@ -112,7 +111,8 @@
 
 
     &__buttons {
-padding: 1rem 0;        
+padding: 1rem 2rem 2rem;    
+border-radius: 0.25rem;    
 background-color: white;
 
         display: flex;

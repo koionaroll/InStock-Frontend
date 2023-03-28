@@ -5,11 +5,12 @@
 
 .add-page__main {
     display: flex;
+    border-radius: 0.25rem;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     background-color: white;
-    padding: 1rem;
+    padding: 2rem 2rem 1rem;
     width: 100%;
 
     &__back {
