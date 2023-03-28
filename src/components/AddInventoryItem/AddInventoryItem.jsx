@@ -24,17 +24,82 @@ function AddInventoryItem({apiUrl}) {
     const [itemName, setItemName] = useState("");
     const [description, setDescription] = useState("");
     const [status, setStatus] = useState("instock");
-    const [quantity, setQuantity] = useState("");
-
+    const [quantity, setQuantity] = useState("0");
+    const [userWarehousechoice, setUserWarehouseChoice] = useState("");
+    const [userCategoryChoice, setUserCategoryChoice] = useState("");
+    const [warehosueId, setWarehouseId] = useState("")
 
     const [itemNameError, setItemNameError] = useState(false);
     const [descriptionError, setDescriptionError] = useState(false);
     const [quantityError, setQuantityError] = useState(false);
     const [statusError, setStatusError] = useState(false)
+    const [categoryError, setCategoryError] = useState(false)
 
 
     const filterWarehouseNames = (data) => {
         return data.filter((item, index) => data.indexOf(item) === index);
+    }
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+            // {
+    //     "warehouse_id": "89898957-04ba-4bd0-9f5c-a7aea7447963",
+    //     "item_name": "Television",
+    //     "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
+    //     "category": "Electronics",
+    //     "status": "In Stock",
+    //     "quantity": "500"
+    // }
+        
+        const newItem = {
+            warehouse_id: warehosueId,
+            item_name: itemName,
+            status: status,
+            quantity: quantity,
+            description: description,
+            category: userCategoryChoice
+        }
+        console.log("now")
+        console.log(warehosueId)
+
+        if (itemName.length <= 0) {
+            setItemNameError(true);
+         }
+      
+        if (status.length <= 0) {
+            setStatusError(true);
+        }
+        if (description.length <= 0) {
+            setDescriptionError(true)
+        }
+        if (userCategoryChoice.length <= 0) {
+            setCategoryError(true)
+        }
+        if (!quantity) {
+            setQuantityError(true)
+        }
+
+        if (quantity === "" || status === "" || description === "" || itemName === "" || userCategoryChoice === "") {
+            alert("Please fill in the missing fields");
+            return;
+        }
+
+        console.log(newItem)
+        addInventory(newItem)
+        alert("Item added")
+        navigate("/inventories")
+
+    }
+
+    const addInventory = (newItem) => {
+        const url = `${apiUrl}/inventories`;
+        axios
+        .post(url, newItem)
+        .then((response) => {})
+        .catch((err) => {
+          console.log("could not post a new warehouse ", err);
+        });
+
     }
 
     const getInventories = () => {
@@ -46,7 +111,7 @@ function AddInventoryItem({apiUrl}) {
             setInventories(response.data)
             const options = [];
             inventories.forEach((inventory) => {
-                options.push({ value: `${inventory.category}`, label: `${inventory.category}` })
+                options.push({ value: `${inventory.category}`, name: `categoryOption`, label: `${inventory.category}` })
             })
             setCategories(options);
             // console.log(warehouses);
@@ -62,7 +127,7 @@ function AddInventoryItem({apiUrl}) {
             setWarehouses(response.data);
             const options = [];
             warehouses.forEach((warehouse) => {
-                options.push({ value: `${warehouse.warehouse_name}`, name: `warehouseNameOption`, label: `${warehouse.warehouse_name}` })
+                options.push({ value: `${ warehouse.warehouse_name}`, id: `${warehouse.id}` , name: `warehouseNameOption`, label: `${warehouse.warehouse_name}` })
             })
             setWarehouseOptions(options);
             // console.log(warehouses);
@@ -117,6 +182,20 @@ function AddInventoryItem({apiUrl}) {
 
     const handleNameSelecChange = (choice) => {
         console.log(choice);
+        const {value, name, id} = choice;
+       
+        if (name === "warehouseNameOption") {
+            setUserWarehouseChoice(value);
+            setWarehouseId(id)
+            console.log(value)
+            console.log(id)
+        }
+        if (name === "categoryOption") {
+            setUserCategoryChoice(value)
+            console.log(value)
+        }
+
+
         
     }
 
@@ -133,7 +212,7 @@ function AddInventoryItem({apiUrl}) {
                 <h1 className='addInventory__item'>Add New Inventory Item</h1>
             </div>  
 
-            <form className="addInventory__main__form" id="form">    
+            <form onSubmit={handleFormSubmit} className="addInventory__main__form" id="form">    
                 <div className="addInventory__wrapper">    
                     <div className="addInventory__section1">    
                         <div className="addInventory__details1">
@@ -187,8 +266,10 @@ function AddInventoryItem({apiUrl}) {
 
                             <div className="addInventory__form">
                                 <label className="addInventory__subtitle" 
-                                    htmlFor="category">Category</label>      
-                                <Select  options={categories} />
+                                    htmlFor="category">Category</label>
+                               
+                                <Select onChange={handleNameSelecChange}  options={categories} />
+
                             </div>
                         </div>
                     </div>
@@ -238,16 +319,7 @@ function AddInventoryItem({apiUrl}) {
                             
                             <div className="addInventory__form">
                                 <label className="addInventory__subtitle" htmlFor="warehouse">Warehouse</label>
-                                {/* <select className="addInventory__input addInventory__input--warehouse" name="Warehouse" id="Warehouse"> */}
-                                    {/* <option value="Manhattan">Please select</option> */}
-                                    {/* {warehouses.forEach((warehouse) => {
-                                          <option key={warehouse.id}
-                                        value={`${warehouse.warehouse_name}`}>{warehouse.warehouse_name}
-                                        </option>
-                                    })} */}
-                                    {/* <option value="Manhattan">{"Manhattan"}</option> */}
-                                    
-                                {/* </select> */}
+                             
                                 <Select onChange={handleNameSelecChange} options={warehouseOptions} />
                             </div>
 
