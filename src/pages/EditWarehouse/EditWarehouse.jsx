@@ -32,7 +32,6 @@ const EditWarehouse = ({ apiUrl }) => {
   };
 
   useEffect(() => {
-    console.log("here123");
     if (warehouseId) {
       getWarehouse(warehouseId);
     }
