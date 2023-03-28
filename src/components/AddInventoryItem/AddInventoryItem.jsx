@@ -1,14 +1,24 @@
 import React from "react";
+
 import "../AddInventoryItem/AddInventoryItem.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import Select from 'react-select'
 import { useParams } from "react-router-dom";
 import errorIcon from '../../assets/Icons/error-24px.svg'
 
 import back from '../../assets/Icons/arrow_back-24px.svg';
 
-function AddInventoryItem() {
+function AddInventoryItem({apiUrl}) {
+
+    // state variable for warehouse names used for warehouse dropdown
+    const [warehouses, setWarehouses] = useState([]);
+    const [inventories, setInventories] = useState([]);
+    const [warehouseOptions, setWarehouseOptions] = useState([])
+    const [categories, setCategories] = useState([])
+    // const [warehouseOptions, setWarehouseOptions] = useState([])
+
 
     const navigate = useNavigate();
     const [itemName, setItemName] = useState("");
@@ -23,6 +33,59 @@ function AddInventoryItem() {
     const [statusError, setStatusError] = useState(false)
 
 
+    const filterWarehouseNames = (data) => {
+        return data.filter((item, index) => data.indexOf(item) === index);
+    }
+
+    const getInventories = () => {
+        const url =  `${apiUrl}/inventories`;
+        axios
+        .get(url)
+        .then(response => {
+            // console.log(response.data)
+            setInventories(response.data)
+            const options = [];
+            inventories.forEach((inventory) => {
+                options.push({ value: `${inventory.category}`, label: `${inventory.category}` })
+            })
+            setCategories(options);
+            // console.log(warehouses);
+        })
+    }
+
+    const getWarehouseNames = () => {
+        const url =  `${apiUrl}/warehouses`;
+        axios
+        .get(url)
+        .then(response => {
+            // console.log(response.data);
+            setWarehouses(response.data);
+            const options = [];
+            warehouses.forEach((warehouse) => {
+                options.push({ value: `${warehouse.warehouse_name}`, label: `${warehouse.warehouse_name}` })
+            })
+            setWarehouseOptions(options);
+            // console.log(warehouses);
+        }) 
+        .catch(err => {
+            console.log(`Could not find warehouses ${err}`)
+        })
+    }
+
+    useEffect(() => {
+        getWarehouseNames();
+        // console.log("here")
+        // console.log(warehouses)
+    }, [warehouses])
+
+
+    useEffect(() => {
+        getInventories();
+        // console.log("here")
+        // console.log(inventories)
+    }, [inventories])
+
+    // console.log(warehouses)
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         if (name === "itemName") {
@@ -40,6 +103,7 @@ function AddInventoryItem() {
         }
         if (name === "status") {
             console.log(value)
+            setStatus(value)
             // setStatu here
             value === "outofstock" ? setStatusError(true) : setStatusError(false);
             console.log(status)
@@ -114,12 +178,14 @@ function AddInventoryItem() {
                             <div className="addInventory__form">
                                 <label className="addInventory__subtitle" 
                                     htmlFor="category">Category</label>
-                                <select className="addInventory__input addInventory__input--category" 
+                                {/* <select className="addInventory__input addInventory__input--category" 
                                     name="category" 
                                     id="category">
                                     <option value="">Please select</option>
                                     <option value="Electric">Electric</option>
-                                </select>
+                                </select> */}
+                                <Select className="addInventory__input addInventory__input--category"  options={categories} />
+
                             </div>
                         
                         </div>
@@ -170,10 +236,17 @@ function AddInventoryItem() {
                             
                             <div className="addInventory__form">
                                 <label className="addInventory__subtitle" htmlFor="warehouse">Warehouse</label>
-                                <select className="addInventory__input addInventory__input--warehouse" name="Warehouse" id="Warehouse">
-                                    <option value="Manhattan">Please select</option>
-                                    <option value="Manhattan">Manhattan</option>
-                                </select>
+                                {/* <select className="addInventory__input addInventory__input--warehouse" name="Warehouse" id="Warehouse"> */}
+                                    {/* <option value="Manhattan">Please select</option> */}
+                                    {/* {warehouses.forEach((warehouse) => {
+                                          <option key={warehouse.id}
+                                        value={`${warehouse.warehouse_name}`}>{warehouse.warehouse_name}
+                                        </option>
+                                    })} */}
+                                    {/* <option value="Manhattan">{"Manhattan"}</option> */}
+                                    
+                                {/* </select> */}
+                                <Select className="addInventory__subtitle addInventory__input--warehouse"  options={warehouseOptions} />
                             </div>
 
                         </div>
