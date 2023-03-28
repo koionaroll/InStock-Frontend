@@ -34,7 +34,6 @@ function InventoryModal({openModal, setOpenModal, id, itemName, resetData}) {
 
   return (
     <>
-
       <dialog ref={dialogRef} className="modal" id="modal">
         <div className="modal__wrapper">
           <div className="modal__message-container">

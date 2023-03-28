@@ -165,9 +165,9 @@ function AddInventoryItem({apiUrl}) {
                             <div className="addInventory__form">
                                 <label className="addInventory__subtitle" htmlFor="description">Description</label>
                                 <input 
-                                    className={`addInventory__input ${
+                                    className={`addInventory__input-1 ${
                                         itemNameError ? "addInventory__input--error" : "" }`}
-                                    placeholder="Description" 
+                                    placeholder="Please enter a brief item description" 
                                     name="description" 
                                     id="description"
                                     value= {description}
@@ -187,17 +187,9 @@ function AddInventoryItem({apiUrl}) {
 
                             <div className="addInventory__form">
                                 <label className="addInventory__subtitle" 
-                                    htmlFor="category">Category</label>
-                                {/* <select className="addInventory__input addInventory__input--category" 
-                                    name="category" 
-                                    id="category">
-                                    <option value="">Please select</option>
-                                    <option value="Electric">Electric</option>
-                                </select> */}
-                                <Select   options={categories} />
-
+                                    htmlFor="category">Category</label>      
+                                <Select  options={categories} />
                             </div>
-                        
                         </div>
                     </div>
 
