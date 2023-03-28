@@ -9,6 +9,8 @@ import "./WarehouseList.scss";
 
 const WarehouseList = ({ apiUrl }) => {
   //We set our data state to an empty array
+  const [sortedData, setSortedData] = useState([]);
+
   const [data, setData] = useState([]);
 
   const getWarehouses = () => {
@@ -30,9 +32,33 @@ const WarehouseList = ({ apiUrl }) => {
 
   useEffect(() => {
     getWarehouses();
-    console.log("hala madrid");
     document.title = "Warehouses Page";
   }, [data.length]);
+
+  const handleSortTarget = (sortValue) => {
+    setitemSort(sortValue);
+    handleSortEvent(sortValue);
+  };
+
+  const [itemSort, setitemSort] = useState("");
+  const handleSortEvent = (sortValue) => {
+    const sortedData = data;
+    if (typeof sortedData[0][sortValue] === "number") {
+      sortedData.sort((a, b) => b[sortValue] - a[sortValue]);
+      setSortedData(sortedData);
+    } else {
+      sortedData.sort((a, b) => {
+        if (a[sortValue] < b[sortValue]) {
+          return -1;
+        }
+        if (a[sortValue] > b[sortValue]) {
+          return 1;
+        }
+        return 0;
+      });
+      setSortedData(sortedData);
+    }
+  };
 
   return data ? (
     <div className="warehouse-list--layout">
@@ -41,19 +67,19 @@ const WarehouseList = ({ apiUrl }) => {
         <div className="warehouse__info--big-screens">
           <div className="warehouse__wrapper">
             <p className="warehouse__title--big-screens">warehouse</p>
-            <img className="warehouse__image" src={sort} alt="" />
+            <img className="warehouse__image" onClick={() => handleSortTarget("warehouse_name")} src={sort} alt="" />
           </div>
           <div className="warehouse__wrapper">
-            <p className="warehouse__title--big-screens">contact name</p>
-            <img className="warehouse__image" src={sort} />
+            <p className="warehouse__title--big-screens" >contact name</p>
+            <img className="warehouse__image" onClick={() => handleSortTarget("contact_name")} src={sort} />
           </div>
           <div className="warehouse__wrapper">
             <p className="warehouse__title--big-screens">address</p>
-            <img className="warehouse__image" src={sort} alt="" />
+            <img className="warehouse__image"  onClick={() => handleSortTarget("address")}src={sort} alt="" />
           </div>
           <div className="warehouse__wrapper">
             <p className="warehouse__title--big-screens">contact information</p>
-            <img className="warehouse__image" src={sort} />
+            <img className="warehouse__image"  onClick={() => handleSortTarget("contact_email")}src={sort} />
           </div>
           <div className="warehouse__wrapper">
             <p className="warehouse__title--big-screens warehouse__title--big-screens--modifier">
