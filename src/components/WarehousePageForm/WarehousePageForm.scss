@@ -16,7 +16,6 @@
         @include tablet {
             flex-direction: row;
             padding: 1rem
-
         }
     }
 
@@ -30,13 +29,13 @@
         gap: 1rem;
         border-top: solid 1px #BDC5D5;
         background-color: white;
-        padding-top: 1rem;
+        padding: 2rem;
 
 
         @include tablet {
             border-top: none;
             width: 100%;
-            padding: 0.5rem 1rem 0.5rem 1rem;
+            padding: 0.5rem 2.5rem;
         }
     }
 
@@ -46,14 +45,14 @@
         gap: 1rem;
         border-top: solid 1px #BDC5D5;
         background-color: white;
-        padding-top: 1rem;
+        padding: 2rem;
 
 
         @include tablet {
             border-top: none;
             border-left: solid 1px $secondary-second;
             width: 100%;
-            padding: 0.5rem 1rem 0.5rem 1rem;
+            padding: 0.5rem 2.5rem;
 
         }
     }
@@ -73,13 +72,14 @@
             border: none;
 
             outline: 2px solid $supporting-second;
-    
+
             &:focus {
                 outline: 2px solid $supporting-second;
             }
+
             &::placeholder {
                 color: $supporting-second;
-            }   
+            }
         }
     }
 
@@ -104,20 +104,14 @@
         display: none;
     }
 
-
-
-
-
-
-
     &__buttons {
-padding: 1rem 2rem 2rem;    
-border-radius: 0.25rem;    
-background-color: white;
-
+        padding: 1rem 2rem 2rem;
+        border-radius: 0.25rem;
+        background-color: white;
         display: flex;
         justify-content: space-around;
         gap: 1rem;
+
         @include tablet {
             justify-content: flex-end;
             gap: 1rem;
@@ -180,7 +174,5 @@ background-color: white;
             width: 5rem;
         }
     }
-    
+
 }
-
-
