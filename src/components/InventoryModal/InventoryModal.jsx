@@ -42,7 +42,7 @@ function InventoryModal({openModal, setOpenModal, id, itemName, resetData}) {
             <h1 className="modal__title">Delete {itemName} inventory item</h1>
             <p className="modal__text">
               Please confirm that you would like to delete {itemName} from the
-              list of Warehouses. You won't be able to undo this action.
+              inventory list. You won't be able to undo this action.
             </p>
           </div>
           <div className="modal__button-container">
