@@ -77,6 +77,7 @@ const InventoryList = ({ apiUrl }) => {
                 category={inventory.category}
                 status={inventory.status}
                 quantity={inventory.quantity}
+                getInventory={getInventory}
               />
             );
           })}

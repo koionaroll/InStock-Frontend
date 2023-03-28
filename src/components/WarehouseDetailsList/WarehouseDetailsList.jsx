@@ -35,6 +35,10 @@ function WarehouseDetailsList({ apiUrl }) {
     getWarehouseData();
     getInventoryData();
   }, []);
+  const warehouseInventoryData = () => {
+      getWarehouseData()
+     getInventoryData()
+  }
   document.title = selectedWarehouse.warehouse_name;
 
   return (
@@ -43,6 +47,7 @@ function WarehouseDetailsList({ apiUrl }) {
         <ListDetailsHeader warehouseInfo={selectedWarehouse} />
         {inventory.map((element) => (
           <ListItem
+            getWarehouse={warehouseInventoryData}
             element={element}
             key={element.id}
             warehouseInfo={selectedWarehouse}

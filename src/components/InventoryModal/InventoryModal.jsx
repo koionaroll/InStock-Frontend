@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import x from "../../assets/Icons/close-24px.svg"
 
-function InventoryModal({openModal, setOpenModal, id, itemName, getWarehouse}) {
+function InventoryModal({openModal, setOpenModal, id, itemName, resetData}) {
   const dialogRef = useRef();
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function InventoryModal({openModal, setOpenModal, id, itemName, getWarehouse}) {
   axios
       .delete(apiUrl + `/inventories/${id}`)
       .then((response) => {
-        getWarehouse();
+        resetData()
         setOpenModal(false)
 
       })
