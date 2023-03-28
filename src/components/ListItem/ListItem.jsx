@@ -12,7 +12,6 @@ function ListItem({ element, warehouseInfo, getWarehouse }) {
   const [inStock, setStock] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
-    console.log(element)
     if (element.quantity === 0) {
       setStock(false);
     } else {
