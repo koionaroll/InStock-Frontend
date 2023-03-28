@@ -62,7 +62,7 @@ function AddInventoryItem({apiUrl}) {
             setWarehouses(response.data);
             const options = [];
             warehouses.forEach((warehouse) => {
-                options.push({ value: `${warehouse.warehouse_name}`, label: `${warehouse.warehouse_name}` })
+                options.push({ value: `${warehouse.warehouse_name}`, name: `warehouseNameOption`, label: `${warehouse.warehouse_name}` })
             })
             setWarehouseOptions(options);
             // console.log(warehouses);
@@ -87,6 +87,7 @@ function AddInventoryItem({apiUrl}) {
 
     // console.log(warehouses)
     const handleInputChange = (event) => {
+        
         const {name, value} = event.target;
         if (name === "itemName") {
             setItemName(value);
@@ -108,6 +109,15 @@ function AddInventoryItem({apiUrl}) {
             value === "outofstock" ? setStatusError(true) : setStatusError(false);
             console.log(status)
         }
+        // if (name === "warehouseNameOption") {
+        //     console.log("heereerer")
+        //     console.log(value)
+        // }
+    }
+
+    const handleNameSelecChange = (choice) => {
+        console.log(choice);
+        
     }
 
    
@@ -246,7 +256,7 @@ function AddInventoryItem({apiUrl}) {
                                     {/* <option value="Manhattan">{"Manhattan"}</option> */}
                                     
                                 {/* </select> */}
-                                <Select  options={warehouseOptions} />
+                                <Select onChange={handleNameSelecChange} options={warehouseOptions} />
                             </div>
 
                         </div>
