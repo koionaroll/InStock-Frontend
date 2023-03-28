@@ -47,7 +47,7 @@ const EditWarehouse = ({ apiUrl }) => {
       <div className="layout2">
         <div className="layout1">
           <PageMainAction title={"Warehouse"} type={"Edit"} />
-          <WarehousePageForm formType={"Edit"} placeHolderInfo={warehouse} />
+          <WarehousePageForm apiUrl={apiUrl} formType={"Edit"} placeHolderInfo={warehouse} />
         </div>
       </div>
     </>

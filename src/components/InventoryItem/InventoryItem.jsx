@@ -87,7 +87,7 @@ const InventoryItem = ({
             <p className="inventory__info">{warehouseName}</p>
           </div>
           <ul className="inventory__container">
-            <li className="inventory__item" onClick={()=>setOpenModal(true)}>
+            <li className="inventory__item" onClick={() => setOpenModal(true)}>
               <img
                 className="inventory__delete-button"
                 src={deleteButton}
