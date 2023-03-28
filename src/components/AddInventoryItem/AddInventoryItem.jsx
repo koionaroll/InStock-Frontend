@@ -184,7 +184,7 @@ function AddInventoryItem({apiUrl}) {
                                     <option value="">Please select</option>
                                     <option value="Electric">Electric</option>
                                 </select> */}
-                                <Select className="addInventory__input addInventory__input--category"  options={categories} />
+                                <Select   options={categories} />
 
                             </div>
                         
@@ -246,7 +246,7 @@ function AddInventoryItem({apiUrl}) {
                                     {/* <option value="Manhattan">{"Manhattan"}</option> */}
                                     
                                 {/* </select> */}
-                                <Select className="addInventory__subtitle addInventory__input--warehouse"  options={warehouseOptions} />
+                                <Select  options={warehouseOptions} />
                             </div>
 
                         </div>
