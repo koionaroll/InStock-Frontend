@@ -112,6 +112,8 @@
         border: 1px solid $secondary-second;
         border-radius: 20px;
         padding: 8px;
+        width: fit-content;
+        height: fit-content;
 
         &--error {
             border: none;
@@ -233,4 +235,9 @@
             width: 7%;
         }
     }
+}
+
+.description__input{
+    width: 18.4rem;
+    height: 7.5rem;
 }
