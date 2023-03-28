@@ -16,7 +16,7 @@ const InventoryItem = ({
   itemName,
   category,
   status,
-  quantity
+  quantity,
 }) => {
   const [inStock, setStock] = useState(false);
   const [warehouseName, setWarehouseName] = useState("");
@@ -46,7 +46,13 @@ const InventoryItem = ({
   }, [quantity]);
   return (
     <>
-      <InventoryModal itemName={itemName} setOpenModal={setOpenModal} id={id} openModal={openModal} getWarehouse={getWarehouse}/>
+      <InventoryModal
+        itemName={itemName}
+        setOpenModal={setOpenModal}
+        id={id}
+        openModal={openModal}
+        getWarehouse={getWarehouse}
+      />
       <div className="inventory">
         <div className="inventory__block">
           <div className="inventory__container">
@@ -86,7 +92,7 @@ const InventoryItem = ({
             <p className="inventory__info">{warehouseName}</p>
           </div>
           <ul className="inventory__container">
-            <li className="inventory__item" onClick={()=>setOpenModal(true)}>
+            <li className="inventory__item" onClick={() => setOpenModal(true)}>
               <img
                 className="inventory__delete-button"
                 src={deleteButton}
