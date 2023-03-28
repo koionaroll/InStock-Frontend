@@ -2,11 +2,12 @@
 // This component is the header (left arrow and title) that is 
 // the child of the add warehouse and inventory components pages
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import leftArrow from '../../assets/Icons/arrow_back-24px.svg';
 import "../PageMainAction/PageMainAction.scss";
 
 const PageMainAction = ({title, type}) => {
+const navigate = useNavigate();
 
     let pageTitle = ``;
 
@@ -25,7 +26,7 @@ const PageMainAction = ({title, type}) => {
     return (
         <>
             <section className="add-page__main">
-                <Link to="/warehouse">
+                <Link onClick={() => { navigate(-1); }}>
                     <img src={leftArrow} className='add-page__main__back'/>
                 </Link>
               

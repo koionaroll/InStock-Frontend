@@ -53,7 +53,7 @@ function AddInventoryItem() {
         <section className='addInventory'>
                 
             <div className='addInventory__header'>                    
-                <NavLink to="/" className='addInventory__back__btn'>    
+                <NavLink onClick={() => { navigate(-1); }} className='addInventory__back__btn'>    
                     <img src={back} alt="back icon" />
                 </NavLink>
                 <h1 className='addInventory__item'>Add New Inventory Item</h1>

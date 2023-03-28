@@ -5,14 +5,16 @@ import axios from "axios";
 import back from "../../assets/Icons/arrow_back-24px.svg";
 import { ReactComponent as Edit } from "../../assets/Icons/edit-24px.svg";
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
-function InventoryItemDetails() {
+function InventoryItemDetails({ apiUrl }) {
   const [data, setData] = useState({});
   const location = useLocation();
+  const warehouseName = location.state;
+  const [name, setName] = useState({});
+  const navigate = useNavigate();
   const warehouseInfo = location.state;
   const { itemId } = useParams();
-  const apiUrl = "http://localhost:5050";
 
   const [inStock, setStock] = useState(false);
   useEffect(() => {
@@ -33,26 +35,44 @@ function InventoryItemDetails() {
         console.error("Error: ", error);
       });
   };
+
+  const getName = () => {
+    axios
+      .get(apiUrl + "/warehouses/" + warehouseName)
+      .then((res) => {
+        setName(res.data);
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
+  };
+
   useEffect(() => {
-    getData();
+    if (warehouseName){
+      getName();
+    }
+    if (itemId){
+      getData()};
   }, []);
 
-  document.title = `${warehouseInfo.warehouse_name}: ${data.item_name}`;
+  document.title = `${data.item_name}`;
 
   return (
     <main>
-      <section className="inventory">
+      <section className="inventory1">
         <div className="inventory__header">
-          <div className="inventory__title">
+          <div className="inventory__title-item">
             <NavLink
-              to={`/${data.warehouse_id}`}
+              onClick={() => {
+                navigate(-1);
+              }}
               className="inventory__back__btn"
             >
               <img src={back} alt="back icon" />
             </NavLink>
-            <h1 className="inventory__item">{data.item_name}</h1>
+            <h1>{data.item_name}</h1>
           </div>
-          <NavLink to="/" className="inventory__edit__btn">
+          <NavLink to="/inventory/edit/:itemId" className="inventory__edit__btn">
             <Edit className="inventory__edit" />
             <p className="inventory__edit__btn--text">Edit</p>
           </NavLink>
@@ -71,7 +91,7 @@ function InventoryItemDetails() {
           </div>
           <div className="inventory__column__2">
             <div className="inventory__status__quantity">
-              <div className="inventory__status">
+              <div className="inventory__status-1">
                 <p className="inventory__sub__title">status:</p>
                 <p
                   className={
@@ -91,7 +111,9 @@ function InventoryItemDetails() {
             <div className="inventory__warehouse">
               <p className="inventory__sub__title">warehouse:</p>
               <p className="inventory__content">
-                {warehouseInfo.warehouse_name}
+                {warehouseInfo?.warehouse_name
+                  ? warehouseInfo.warehouse_name
+                  : name.warehouse_name}
               </p>
             </div>
           </div>

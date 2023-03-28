@@ -3,12 +3,12 @@ import "./WarehouseDetails.scss";
 
 import WarehouseDetailsList from "../../components/WarehouseDetailsList/WarehouseDetailsList";
 
-function WarehouseDetails() {
+function WarehouseDetails({ apiUrl }) {
   return (
     <>
-        <div className="WarehouseDetails--layout">
-          <WarehouseDetailsList />
-        </div>
+      <div className="WarehouseDetails--layout">
+        <WarehouseDetailsList apiUrl={apiUrl} />
+      </div>
     </>
   );
 }

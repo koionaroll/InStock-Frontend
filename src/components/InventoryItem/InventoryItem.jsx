@@ -8,6 +8,7 @@ import arrowBack from "../../assets/Icons/chevron_right-24px.svg";
 
 import "./InventoryItem.scss";
 import { useEffect, useState } from "react";
+import InventoryModal from "../InventoryModal/InventoryModal";
 const InventoryItem = ({
   apiUrl,
   warehouseId,
@@ -19,7 +20,7 @@ const InventoryItem = ({
 }) => {
   const [inStock, setStock] = useState(false);
   const [warehouseName, setWarehouseName] = useState("");
-
+  const [openModal, setOpenModal] = useState(false);
   const getWarehouse = (warehouseId) => {
     axios
       .get(apiUrl + "/warehouses/" + warehouseId)
@@ -45,15 +46,22 @@ const InventoryItem = ({
   }, [quantity]);
   return (
     <>
+      <InventoryModal
+        itemName={itemName}
+        setOpenModal={setOpenModal}
+        id={id}
+        openModal={openModal}
+        getWarehouse={getWarehouse}
+      />
       <div className="inventory">
         <div className="inventory__block">
           <div className="inventory__container">
             <p className="inventory__title">inventory item</p>
             <div className="inventory__second-container">
-              <Link className="inventory__link" to={`/${id}`}>
+              <Link state={warehouseId} className="inventory__link" to={`/inventory/${id}`}>
                 <p className="inventory__info">{itemName}</p>
               </Link>
-              <Link className="inventory__link" to={`/${id}`}>
+              <Link state={warehouseId} className="inventory__link" to={`/inventory/${id}`}>
                 <img className="inventory__info" src={arrowBack} />
               </Link>
             </div>
@@ -84,7 +92,7 @@ const InventoryItem = ({
             <p className="inventory__info">{warehouseName}</p>
           </div>
           <ul className="inventory__container">
-            <li className="inventory__item">
+            <li className="inventory__item" onClick={() => setOpenModal(true)}>
               <img
                 className="inventory__delete-button"
                 src={deleteButton}
@@ -94,7 +102,7 @@ const InventoryItem = ({
             <li className="inventory__item">
               <Link
                 className="inventory__link--modifier"
-                to={`inventorys/edit/${id}`}
+                to={`/inventory/edit/${id}`}
               >
                 <Edit className="inventory__edit-button" />
               </Link>

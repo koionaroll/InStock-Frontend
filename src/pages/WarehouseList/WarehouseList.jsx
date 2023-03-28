@@ -7,11 +7,9 @@ import PageMain from "../../components/PageMain/PageMain";
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./WarehouseList.scss";
 
-const WarehouseList = () => {
+const WarehouseList = ({ apiUrl }) => {
   //We set our data state to an empty array
   const [data, setData] = useState([]);
-
-  const apiUrl = "http://localhost:5050";
 
   const getWarehouses = () => {
     axios
@@ -46,11 +44,11 @@ const WarehouseList = () => {
             <img className="warehouse__image" src={sort} alt="" />
           </div>
           <div className="warehouse__wrapper">
-            <p className="warehouse__title--big-screens">address</p>
+            <p className="warehouse__title--big-screens">contact name</p>
             <img className="warehouse__image" src={sort} />
           </div>
           <div className="warehouse__wrapper">
-            <p className="warehouse__title--big-screens">contact name</p>
+            <p className="warehouse__title--big-screens">address</p>
             <img className="warehouse__image" src={sort} alt="" />
           </div>
           <div className="warehouse__wrapper">
@@ -73,6 +71,7 @@ const WarehouseList = () => {
               contactName={warehouse.contact_name}
               contactPhone={warehouse.contact_phone}
               contactEmail={warehouse.contact_email}
+              getWarehouses={getWarehouses}
             />
           );
         })}

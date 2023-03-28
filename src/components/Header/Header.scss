@@ -14,9 +14,11 @@
     justify-content: space-between;
     align-items: center;
   }
+
   @include desktop {
     padding: 24px 63px 120px;
   }
+
   &__logo {
     width: 125px;
   }
@@ -26,6 +28,7 @@
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
+
   @include tablet {
     font-weight: 400;
     font-size: 14px;
@@ -45,9 +48,13 @@
     width: 50%;
     margin-top: 8px;
     padding: 8px 0px;
+    padding-left: 36px;
+    padding-right: 36px;
+
     @include tablet {
       margin-top: 0;
     }
+
     &:hover {
       background-color: $primary-first;
       border-radius: 50px;
@@ -60,6 +67,7 @@
     font-weight: 600;
     background-color: $primary-first;
     border-radius: 50px;
+
     @include tablet {
       display: flex;
       justify-content: center;

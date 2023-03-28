@@ -12,23 +12,25 @@ const PageMain = ({ pageName }) => {
             {`${pageName === "Warehouse" ? "Warehouses" : "Inventory"}`}{" "}
           </h1>
         </div>
-        <div className="main__section-input-container">
-          <input
-            className="main__section-input"
-            placeholder="Search..."
-            type="text"
-          />
-        </div>
-        <div className="main__section-button-container">
-          {/* <button className="main__section-button"> + Add New {pageName} </button> */}
-          <Link
-            className="main__section-button"
-            to={`${
-              pageName === "Warehouse" ? "/warehouse/add" : "/inventory/add"
-            }`}
-          >
-            + Add New {`${pageName === "Warehouse" ? "Warehouse" : "Item"}`}
-          </Link>
+        <div className="main__section-input-layout">
+          <div className="main__section-input-container">
+            <input
+              className="main__section-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+          <div className="main__section-button-container">
+            {/* <button className="main__section-button"> + Add New {pageName} </button> */}
+            <Link
+              className="main__section-button"
+              to={`${
+                pageName === "Warehouse" ? "/warehouse/add" : "/inventory/add"
+              }`}
+            >
+              + Add New {`${pageName === "Warehouse" ? "Warehouse" : "Item"}`}
+            </Link>
+          </div>
         </div>
       </section>
     </>
